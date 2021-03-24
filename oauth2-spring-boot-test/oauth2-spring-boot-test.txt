@@ -1,0 +1,38 @@
+18-05-2020:
+2.Authorization code grant:
+
+http://localhost:5555/EX/api/users/me        GET
+
+
+http://localhost:5555/EX/oauth/authorize?client_id=clientapp&response_type=code&scope=read   GET
+Login usename[giridhar] and password[9492011] if wrong bad credentials
+get authorization_code ex.. Y8TjJK
+http://localhost:8081/login?code=Y8TjJK
+
+
+http://localhost:5555/EX/oauth/token?grant_type=authorization_code&code=Y8TjJK     POST
+Authorization tab-->
+    Type[Basic auth]-->
+          username[clientapp] and password[123456]
+{
+    "access_token": "99192b21-0690-432e-a11f-9c3e8436262e",
+    "token_type": "bearer",
+    "refresh_token": "c457615b-ae62-4df3-b6bd-bc717a2feeff",
+    "expires_in": 299,
+    "scope": "read"
+}
+
+Note:Try in browese Post man not getting responce will check this later...
+http://localhost:5555/EX/api/users/me?access_token=99192b21-0690-432e-a11f-9c3e8436262e    GET
+http://localhost:5555/EX/api/users/me?refresh_token=c457615b-ae62-4df3-b6bd-bc717a2feeff
+{
+name: "giridhar",
+email: "giridhar@pivotalteam.com"
+}
+
+
+http://localhost:5555/EX/api/users/me?refresh_token=c457615b-ae62-4df3-b6bd-bc717a2feeff
+Login usename[giridhar] and password[9492011] if wrong bad credentials
+
+
+

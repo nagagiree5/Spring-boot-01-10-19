@@ -1,0 +1,174 @@
+12-11-19:-
+
+
+1>>Install :Get Postman for Windows -->https://www.getpostman.com/downloads/
+   
+2>>Postman-win64-7.11.0-Setup.exe..,  Login With google account Or Mail...
+
+
+INSERT INTO "GIRIDB"."USERS_TAB" (USER_ID, PHONE_NO, USER_NAME) VALUES ('111', '9492011956', 'NagagiriGollapalli')
+INSERT INTO "GIRIDB"."USERS_TAB" (USER_ID, PHONE_NO, USER_NAME) VALUES ('333', '987654321', 'Nothing')
+
+Commit Successful
+
+urlTest1:-
+>>In browser:
+  [ http://localhost:4555/UserApi/users/all    ] Note>> Only Get urls can access thru browser...Not other urls...
+                                                                                            Thru PostMan we can access other urls like pos,put,delete ect...
+[{"userId":111,"userName":"NagagiriGollapalli","phoneNo":9492011956},{"userId":222,"userName":"HegdePooja","phoneNo":1234567891}]
+
+>>In PostMan:
+-->[GET] http://localhost:4555/UserApi/users/all 
+[
+    {
+        "userId": 111,
+        "userName": "NagagiriGollapalli",
+        "phoneNo": 9492011956
+    },
+    {
+        "userId": 222,
+        "userName": "HegdePooja",
+        "phoneNo": 1234567891
+    }
+]
+
+
+urlTest2:-
+>>In browser:
+  [ http://localhost:4555/UserApi/users/222    ]
+
+{"userId":222,"userName":"HegdePooja","phoneNo":1234567891}
+
+>>In PostMan:
+-->[GET] http://localhost:4555/UserApi/users/222 
+{
+    "userId": 222,
+    "userName": "HegdePooja",
+    "phoneNo": 1234567891
+}
+
+urlTest3:-
+>>In PostMan:
+-->[DELETE] http://localhost:4555/UserApi/delete?userid=333 
+   User  is  Deleted  from   Database
+
+
+
+>>http://localhost:4555/UserApi/users/all
+
+111
+NagagiriGollapalli
+9492011956
+=================
+222
+HegdePooja
+1234567891
+=================
+
+>>http://localhost:4555/UserApi/users/222
+
+222
+HegdePooja
+1234567891
+==================
+
+>>http://localhost:4555/UserApi/create    -->POST -->Http Method...
+                                                [Body ]-->Tab...
+                            [                           *raw      #>Json]
+-----------------------------------------------------------------------------------                         
+    {
+        "userId": 333,
+        "userName": "NagagiriGollapalli",
+        "phoneNo": 9492011956
+    }   
+    
+    
+------------------------------------------------------------------------------------    
+User  is   Added   to   Database
+
+
+
+
+>>http://localhost:4555/UserApi/update     -->>PUT-->>Http Method...
+                                                [Body ]-->Tab...
+                            [                           *raw      #>Json]
+-----------------------------------------------------------------------------------                         
+    {
+        "userId": 333,
+        "userName": "NagagiriGollapalli",
+        "phoneNo": 949200000
+    }   
+    
+    
+------------------------------------------------------------------------------------    
+User  is  Updated   to  Database
+
+
+>>In Oracle:-
+SQL> select * from users_tab;
+
+   USER_ID   PHONE_NO
+---------- ----------
+USER_NAME
+--------------------------------------------------------------------------------
+       111 9492011956
+NagagiriGollapalli
+
+       222 1234567891
+HegdePooja
+
+       333  949200000
+NagagiriGollapalli
+
+
+
+
+>>In Oracle:-
+SQL> select * from USERS_TAB;
+
+   USER_ID   PHONE_NO
+---------- ----------
+USER_NAME
+--------------------------------------------------------------------------------
+       111 9492011956
+NagagiriGollapalli
+
+       222 1234567891
+HegdePooja
+
+       103   89902431
+C
+
+>>http://localhost:4555/UserApi/delete?userid=333
+
+User  is  Deleted  from   Database
+
+http://localhost:4555/UserApi/update
+
+INSERT INTO `giridb`.`users_tab` (`user_id`, `phone_no`, `user_name`) VALUES ('111', '9492011956', 'NagagiriGollapalli');
+INSERT INTO `giridb`.`users_tab` (`user_id`, `phone_no`, `user_name`) VALUES ('222', '1234567891', 'PoojaHegde');
+INSERT INTO `giridb`.`users_tab` (`user_id`, `phone_no`, `user_name`) VALUES ('333', '9876543219', 'Nothing');
+
+==================================================================================================================================================================
+http://localhost:4555/UserApi/users/all
+http://localhost:4555/UserApi/users/222
+http://localhost:4555/UserApi/create
+http://localhost:4555/UserApi/update
+http://localhost:4555/UserApi/delete?userid=103
+
+Issues: Mysqlport,Refactor and Server port's...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

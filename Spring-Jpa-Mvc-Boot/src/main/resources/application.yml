@@ -1,0 +1,18 @@
+server:
+   port: 4555
+   servlet:
+        context-path: /ems
+spring:
+  datasource:
+    url:      jdbc:oracle:thin:@localhost:1521/xe
+    username: giridb
+    password: giridb
+    driverClassName: oracle.jdbc.driver.OracleDriver
+  # Spring Data JPA configuration
+  jpa:
+    hibernate:
+      # To be updated in real production usage!
+      ddl-auto: update
+    show-sql: true
+    
+    

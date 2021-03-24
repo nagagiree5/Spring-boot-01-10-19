@@ -1,0 +1,17 @@
+server:
+   port: 4555
+   servlet:
+        context-path: /UserApi
+spring:
+  datasource:
+    url:      jdbc:mysql://localhost:3306/giridb
+    username: root
+    password: giridb
+    driverClassName: com.mysql.cj.jdbc.Driver
+  # Spring Data JPA configuration
+  jpa:
+    hibernate:
+      # To be updated in real production usage!
+      ddl-auto: update
+    show-sql: true
+    

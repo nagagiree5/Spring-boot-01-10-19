@@ -1,0 +1,199 @@
+14-05-2020:
+
+Oauth2 Protocol:
+1.ResourceOwner   (You)
+2.ResourceServer (facebook or github or google)
+3.AuthorizationServer  (facebook or github or google)
+4.Client Application (Zoom or quora)
+
+Oauth2 Protocol grants:
+1.Resource owner password credentials grant
+2.Authorization code grant
+3.Implicit grant
+4.Client credentials grant
+5.Refresh token grant
+
+Ex:
+Zoom
+===================================
+    [facebook]   {SignUp SignIn}
+    [google  ]
+
+===================================
+
+def:Oauth2 is a specification, which allows a client applications to access some portion of user's data from resource server with authorization of resource owner.
+1.ResourceOwner(The user):
+      An entity capable of granting access to a protected resource.
+      when resource owner is a person, it is referred to an end-user.
+2.ResourceServer(a.k.a. the API Server):
+      The server hostiong protected resources,capable of acceptiong and responding to protected resource requests using access tokens.
+3.AuthorizationServer:
+      The server issuing access tokens to the client after successfully then authentication the resource owner and obtaining authorization.
+4.Client:
+      An application making protected resource requests on be half of the resource owner and with its authorization. The term client doesn't imply any particular implimentation 
+      characteristics (e.g. Whether the application executes on a server, a disk top or other divices.)
+
+
+
+
+15-05-2020:
+=========================================================================================================================================================================================
+1.Resource owner password credentials grant:
+   Resource owner trust 3rd party/client application user directly provide Password Credentials to client application with that get access token from authorization server
+    
+{Resource owner}1
+       Password Credentials2                                                     
+[------------------]  -3-->Sends request with client id + client secret --->  [---------4-------- ]
+[                  ]                                                          lAuthorizationServerl
+[Client application] <<---Access token                                  <<--5-[___________________]
+l                  l
+[                  ] --->Sends a request with access token  --6-> [Resource server   ]
+[                  ] <<-7--Retrieves data                    <<---[__________________]
+[__________________]
+
+
+
+Ex: I trust post man:like as trusted client...
+[POST] http://localhost:4555/UserApi/oauth/token?username=user&password=26249902-e828-4ef4-a903-2e4e5fec6696&grant_type=password&scope=read,write    -->[SEND]
+
+[Params*] [-[Authorization*]-] [Headers] [Body]...etc
+
+TYPE
+   [Basic Auth  >] 
+The authorization header will be automatically generated when you send the request. Learn more about authorization
+
+Heads up! These parameters hold sensitive data. To keep this data secure while working in a collaborative environment, we recommend using variables. Learn more about variables
+---------------------------------------------------------------
+Username
+        [1f148ecb-28b4-4896-b570-6182b91fbed9   ]
+Password
+        [••••••••••••••••••••••••••••••••••••   ]
+[]Show Password
+
+----------------------------------------------------------------
+
+{
+    "access_token": "e7c7794a-3e37-4b77-964b-3c3d79c5aed4",
+    "token_type": "bearer",
+    "refresh_token": "2315a65e-3d90-4e1d-aadb-9096ec75114f",
+    "expires_in": 43199,
+    "scope": "read,write"
+}
+
+Note>> Access Token Expires 43199sec..,Its bydefalut...
+Note>>Along url With Access Token...
+
+[GET] http://localhost:4555/UserApi/users/all?access_token=e7c7794a-3e37-4b77-964b-3c3d79c5aed4
+
+------------------------------------------------------------------------------------------------
+[
+    {
+        "userId": 111,
+        "userName": "NagagiriGollapalli",
+        "phoneNo": 9492011956
+    },
+    {
+        "userId": 222,
+        "userName": "HegdePooja",
+        "phoneNo": 1234567891
+    }
+]
+
+=================================================================================================================================================================================
+2.Authorization code grant:
+                     The third party application use this grant type to acquire access token.
+
+{Resource owner}1
+                                                               4 username and password If authonticated sent authorization code to client application
+{browser url/link of client application}  -2-->redirects user to authorization server --->  [--------3----------]
+                                                                                            l                   l
+                                                                                            lAuthorizationServerl
+[Client application] <<-5-Redirects user to clinet application with authorization code <<---[___________________]
+l                  l
+[                  ]-6->With that authorizatin code along with grant_typ  get aceess token with that access token access resource
+                        http://localhost:5555/EX/oauth/token?grant_type=authorization_code&code=Y8TjJK     POST
+                        Authorization tab-->
+                                    Type[Basic auth]-->
+                                                username[clientapp] and password[123456]
+                       Responce:In post man
+                                {
+                                     "access_token": "99192b21-0690-432e-a11f-9c3e8436262e",
+                                     "token_type": "bearer",
+                                     "refresh_token": "c457615b-ae62-4df3-b6bd-bc717a2feeff",
+                                     "expires_in": 299,
+                                     "scope": "read"
+                                }
+
+                    --> http://localhost:5555/EX/api/users/me?access_token=99192b21-0690-432e-a11f-9c3e8436262e -7->[Resource server  ]
+
+
+============================================================================================================================================================ =========================
+
+3.Implicit grant: The client application running on browser like Angular or JavaScript or single page allication use this grant type to qcquire access token.
+                  In this grant client secrect and refresh token not generated browses cant maintaine client secrects expire time also less...
+
+                   
+{Resource owner}1
+                                                               4 username and password If authonticated sent authorization code to client application
+{browser url/link of clint application}  -2-->redirects user to authorization server --->                    [---------3-------- ]
+                                                                                                             l                   l
+                                                                                                             lAuthorizationServerl
+[Client application] <<---User is redirected to client application running on browser with access token<<-5--[___________________]
+l                  l
+[                  ]---> Client application will sends a request with access token  --6-> [Resource server   ]
+[                  ] <<-7--Retrieves data                                            <<---[__________________]
+[__________________]
+     
+               
+               
+=======================================================================================================================================================================================
+4.Client credentials grant: If the client application itself is resource owner then this grant type is used to qcquire access token.
+                            End-Use's permission is not required to access the data.
+                            In this grant not generate refresh token.
+
+                                                             
+[------------------]  -1-->Sends request with client id + client secret --->  [---------2-------- ]
+[                  ]                                                          lAuthorizationServerl
+[Client application] <<---Access token                                  <<--3-[___________________]
+l                  l
+[                  ] --->Sends a request with access token  --4-> [Resource server   ]
+[                  ] <<-5--Retrieves data                    <<---[__________________]
+[__________________]
+
+
+
+5.Refresh token grant type: If access token is expired then using refresh token a client application can acquire access token again.
+
+
+
+
+
+
+
+==============================================================xxxxxxxxxxxxxxxxx=========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

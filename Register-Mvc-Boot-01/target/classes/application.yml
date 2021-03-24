@@ -1,0 +1,17 @@
+server:
+   port: 9888
+   servlet:
+        context-path: /RegisterMvcBoot
+spring:
+      mvc:
+          view:
+              prefix: /
+              suffix: .jsp               
+      datasource:
+                driverClassName: oracle.jdbc.driver.OracleDriver
+                url: jdbc:oracle:thin:@localhost:1521/xe
+                username: giridb
+                password: giridb
+                
+                
+

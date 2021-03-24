@@ -1,0 +1,16 @@
+2020-05-04:
+CORS(Cross Origin Request Support): bydefault not enable
+#Script belongs to same domain it will access thru rest but diffrent domain script not allowed to access 
+1.Rest controller class level enable
+2.Restcontroller methods level enable
+3.Enable globally at entire application
+
+***
+1.Rest controller class level enable
+2.Restcontroller methods level enable
+    @CrossOrigin
+          origins
+          methods
+          allowedHeaders
+    origin="*" script belongs to any domain 
+    methods="*" or methods="GET" it allowed all or GET

@@ -1,0 +1,409 @@
+11-02-19:-
+
+>>server.port=9492
+>>server.servlet.context-path=/MvcBoot
+*************************************************
+  .   ____          _            __ _ _
+  .   ____          _            __ _ _   
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-11 22:53:47.071  INFO 27348 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Starting SpringMvcBootApplication on SAIGIRI with PID 27348 (C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot)
+2019-10-11 22:53:47.077  INFO 27348 --- [           main] com.mvnrepo.SpringMvcBootApplication     : No active profile set, falling back to default profiles: default
+2019-10-11 22:53:49.575  INFO 27348 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9492 (http)
+2019-10-11 22:53:49.618  INFO 27348 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-11 22:53:49.618  INFO 27348 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-11 22:53:49.915  INFO 27348 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-11 22:53:49.922  INFO 27348 --- [           main] o.a.c.c.C.[.[localhost].[/MvcBoot]       : Initializing Spring embedded WebApplicationContext
+2019-10-11 22:53:49.923  INFO 27348 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2742 ms
+2019-10-11 22:53:50.265  INFO 27348 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-11 22:53:50.605  INFO 27348 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9492 (http) with context path '/MvcBoot'
+2019-10-11 22:53:50.609  INFO 27348 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Started SpringMvcBootApplication in 4.171 seconds (JVM running for 4.684)
+
+
+Note:Stop Server and again run ...If Server is not stop server prot nor issue occures...-_-
+>>spring.main.banner-mode=off
+****************************************************
+
+2019-10-11 22:51:02.606  INFO 23256 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Starting SpringMvcBootApplication on SAIGIRI with PID 23256 (C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot)
+2019-10-11 22:51:02.612  INFO 23256 --- [           main] com.mvnrepo.SpringMvcBootApplication     : No active profile set, falling back to default profiles: default
+2019-10-11 22:51:05.386  INFO 23256 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9492 (http)
+2019-10-11 22:51:05.471  INFO 23256 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-11 22:51:05.472  INFO 23256 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-11 22:51:05.785  INFO 23256 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-11 22:51:05.791  INFO 23256 --- [           main] o.a.c.c.C.[.[localhost].[/MvcBoot]       : Initializing Spring embedded WebApplicationContext
+2019-10-11 22:51:05.791  INFO 23256 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3069 ms
+2019-10-11 22:51:06.203  INFO 23256 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-11 22:51:06.642  INFO 23256 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9492 (http) with context path '/MvcBoot'
+2019-10-11 22:51:06.647  INFO 23256 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Started SpringMvcBootApplication in 4.759 seconds (JVM running for 5.297)
+
+
+
+***[http://localhost:9492/MvcBoot/hello     ]***
+
+On browser:-
+***********
+Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Fri Oct 11 23:05:48 IST 2019
+There was an unexpected error (type=Not Found, status=404).
+No message available
+
+
+Note:Stop Server
+>>spring.mvc.view.prefix=/
+>>spring.mvc.view.suffix=.jsp
+******************************************************
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-11 23:12:55.932  INFO 19344 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Starting SpringMvcBootApplication on SAIGIRI with PID 19344 (C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot)
+2019-10-11 23:12:55.932  INFO 19344 --- [           main] com.mvnrepo.SpringMvcBootApplication     : No active profile set, falling back to default profiles: default
+2019-10-11 23:12:58.144  INFO 19344 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9492 (http)
+2019-10-11 23:12:58.200  INFO 19344 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-11 23:12:58.200  INFO 19344 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-11 23:12:58.465  INFO 19344 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-11 23:12:58.465  INFO 19344 --- [           main] o.a.c.c.C.[.[localhost].[/MvcBoot]       : Initializing Spring embedded WebApplicationContext
+2019-10-11 23:12:58.465  INFO 19344 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2439 ms
+2019-10-11 23:12:58.814  INFO 19344 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-11 23:12:59.127  INFO 19344 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9492 (http) with context path '/MvcBoot'
+2019-10-11 23:12:59.127  INFO 19344 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Started SpringMvcBootApplication in 3.756 seconds (JVM running for 4.199)
+2019-10-11 23:13:55.152  INFO 19344 --- [nio-9492-exec-1] o.a.c.c.C.[.[localhost].[/MvcBoot]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-11 23:13:55.152  INFO 19344 --- [nio-9492-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-11 23:13:55.165  INFO 19344 --- [nio-9492-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+
+***[http://localhost:9492/MvcBoot/hello     ]likeWelcomeFiles.jsp***
+*****************************************************
+From hello world!...
+         Welcome to Spring boot-MVC2...
+         
+                   
+       
+12-10-19:->>
+
+
+Note:If Build is fail...Remove src/test/java...
+1.In Eclipse Right click on project
+                   Run as-->>4.Maven build...-->>Goal:package or clean package-->>Run  [Refesh project JAR file is created on target...] 
+cmd:-->>           mvn clean spring-boot:run
+**********************************************************************************
+
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.mvnrepo:spring-mvc-boot >---------------------
+[INFO] Building spring-mvc-boot 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ spring-mvc-boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ spring-mvc-boot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ spring-mvc-boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ spring-mvc-boot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ spring-mvc-boot ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.mvnrepo.springmvcboot.SpringMvcBootApplicationTests
+13:01:23.696 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.mvnrepo.springmvcboot.SpringMvcBootApplicationTests]
+...Loading 
+
+
+13:01:24.465 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-12 13:01:25.043  INFO 36768 --- [           main] c.m.s.SpringMvcBootApplicationTests      : Starting SpringMvcBootApplicationTests on SAIGIRI with PID 36768 (started by girid in C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot)
+2019-10-12 13:01:25.044  INFO 36768 --- [           main] c.m.s.SpringMvcBootApplicationTests      : No active profile set, falling back to default profiles: default
+2019-10-12 13:01:27.769  INFO 36768 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-12 13:01:28.234  INFO 36768 --- [           main] c.m.s.SpringMvcBootApplicationTests      : Started SpringMvcBootApplicationTests in 3.75 seconds (JVM running for 6.394)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.247 s - in com.mvnrepo.springmvcboot.SpringMvcBootApplicationTests
+2019-10-12 13:01:28.686  INFO 36768 --- [       Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ spring-mvc-boot ---
+[INFO] Building jar: C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\target\spring-mvc-boot-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.9.RELEASE:repackage (repackage) @ spring-mvc-boot ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  57.334 s
+[INFO] Finished at: 2019-10-12T13:01:47+05:30
+[INFO] ------------------------------------------------------------------------
+
+
+
+Note:In cmd-->>With out mvn-plugin
+*******************************
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>cd C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot
+
+C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot>java -jar target\spring-mvc-boot-0.0.1-SNAPSHOT.jar com.mvnrepo.SpringMvcBootApplication --server.port=8585
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-12 13:18:04.360  INFO 9596 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Starting SpringMvcBootApplication v0.0.1-SNAPSHOT on SAIGIRI with PID 9596 (C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\target\spring-mvc-boot-0.0.1-SNAPSHOT.jar started by girid in C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot)
+2019-10-12 13:18:04.368  INFO 9596 --- [           main] com.mvnrepo.SpringMvcBootApplication     : No active profile set, falling back to default profiles: default
+2019-10-12 13:18:07.770  INFO 9596 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8585 (http)
+2019-10-12 13:18:07.825  INFO 9596 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-12 13:18:07.825  INFO 9596 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-12 13:18:12.284  INFO 9596 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-12 13:18:12.399  INFO 9596 --- [           main] o.a.c.c.C.[.[localhost].[/MvcBoot]       : Initializing Spring embedded WebApplicationContext
+2019-10-12 13:18:12.399  INFO 9596 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7897 ms
+2019-10-12 13:18:12.777  INFO 9596 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-12 13:18:13.267  INFO 9596 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8585 (http) with context path '/MvcBoot'
+2019-10-12 13:18:13.275  INFO 9596 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Started SpringMvcBootApplication in 10.03 seconds (JVM running for 11.233)
+
+Note:In Browser
+***[http://localhost:8585/MvcBoot/hello     ]likeWelcomeFiles.jsp***
+*************************************************
+http://localhost:9492/MvcBoot/likeWelcomeFiles.jsp
+From hello world!...
+         Welcome to Spring boot-MVC2...
+
+
+Note:To Stop Server:-
+Ctrl+C
+******************
+2019-10-12 13:22:57.418  INFO 9596 --- [       Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+
+C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot>
+
+
+
+Note:With maven-plugin
+Cmd-->
+****************************************************
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>cd C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot
+
+C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot>mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=9497
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.mvnrepo:spring-mvc-boot >---------------------
+[INFO] Building spring-mvc-boot 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] >>> spring-boot-maven-plugin:2.1.9.RELEASE:run (default-cli) > test-compile @ spring-mvc-boot >>>
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ spring-mvc-boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ spring-mvc-boot ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ spring-mvc-boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ spring-mvc-boot ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] <<< spring-boot-maven-plugin:2.1.9.RELEASE:run (default-cli) < test-compile @ spring-mvc-boot <<<
+[INFO]
+[INFO]
+[INFO] --- spring-boot-maven-plugin:2.1.9.RELEASE:run (default-cli) @ spring-mvc-boot ---
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-12 14:15:54.904  INFO 11652 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Starting SpringMvcBootApplication on SAIGIRI with PID 11652 (C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot)
+2019-10-12 14:15:54.911  INFO 11652 --- [           main] com.mvnrepo.SpringMvcBootApplication     : No active profile set, falling back to default profiles: default
+2019-10-12 14:15:57.140  INFO 11652 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9497 (http)
+2019-10-12 14:15:57.194  INFO 11652 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-12 14:15:57.194  INFO 11652 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-12 14:15:57.423  INFO 11652 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-12 14:15:57.439  INFO 11652 --- [           main] o.a.c.c.C.[.[localhost].[/MvcBoot]       : Initializing Spring embedded WebApplicationContext
+2019-10-12 14:15:57.439  INFO 11652 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2462 ms
+2019-10-12 14:15:57.767  INFO 11652 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-12 14:15:58.048  INFO 11652 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9497 (http) with context path '/MvcBoot'
+2019-10-12 14:15:58.048  INFO 11652 --- [           main] com.mvnrepo.SpringMvcBootApplication     : Started SpringMvcBootApplication in 3.888 seconds (JVM running for 14.659)
+
+
+Note:In Browser
+***[http://localhost:9497/MvcBoot/hello     ]likeWelcomeFiles.jsp***
+*************************************************
+From hello world!...
+         Welcome to Spring boot-MVC2...
+
+
+Note:To Stop Server:-
+Ctrl+Shift+C or Ctrl+C 
+***********************  
+
+2019-10-12 14:22:14.934  INFO 11652 --- [       Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+Terminate batch job (Y/N)? Y
+
+C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot>
+
+
+Note:
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.jar (167 kB at 227 kB/s)
+[INFO]
+[INFO] --------------------< com.mvnrepo:spring-mvc-boot >---------------------
+[INFO] Building spring-mvc-boot 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-dependency-plugin:3.1.1:tree (default-cli) @ spring-mvc-boot ---
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.pom
+C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot>mvn dependency:tree
+
+        Downloaded from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar (588 kB at 66 kB/s)
+[INFO] com.mvnrepo:spring-mvc-boot:jar:0.0.1-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:2.1.9.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.1.9.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:2.1.9.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.9.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.9.RELEASE:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.11.2:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.28:compile
+[INFO] |  |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.9.RELEASE:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.9.9.3:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.9.9:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.9:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.9:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.9:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.9.RELEASE:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.26:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.0.17.Final:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  +- org.springframework:spring-web:jar:5.1.10.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:5.1.10.RELEASE:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:5.1.10.RELEASE:compile
+[INFO] |     +- org.springframework:spring-aop:jar:5.1.10.RELEASE:compile
+[INFO] |     +- org.springframework:spring-context:jar:5.1.10.RELEASE:compile
+[INFO] |     \- org.springframework:spring-expression:jar:5.1.10.RELEASE:compile
+[INFO] +- org.apache.tomcat.embed:tomcat-embed-jasper:jar:9.0.26:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.26:compile
+[INFO] |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.26:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.26:compile
+[INFO] |  \- org.eclipse.jdt:ecj:jar:3.18.0:compile
+[INFO] \- org.springframework.boot:spring-boot-starter-test:jar:2.1.9.RELEASE:test
+[INFO]    +- org.springframework.boot:spring-boot-test:jar:2.1.9.RELEASE:test
+[INFO]    +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.1.9.RELEASE:test
+[INFO]    +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO]    |  +- net.minidev:json-smart:jar:2.3:test
+[INFO]    |  |  \- net.minidev:accessors-smart:jar:1.2:test
+[INFO]    |  |     \- org.ow2.asm:asm:jar:5.0.4:test
+[INFO]    |  \- org.slf4j:slf4j-api:jar:1.7.28:compile
+[INFO]    +- junit:junit:jar:4.12:test
+[INFO]    +- org.assertj:assertj-core:jar:3.11.1:test
+[INFO]    +- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    |  +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    |  +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    |  \- org.objenesis:objenesis:jar:2.6:test
+[INFO]    +- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO]    +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO]    +- org.skyscreamer:jsonassert:jar:1.5.0:test
+[INFO]    |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO]    +- org.springframework:spring-core:jar:5.1.10.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-jcl:jar:5.1.10.RELEASE:compile
+[INFO]    +- org.springframework:spring-test:jar:5.1.10.RELEASE:test
+[INFO]    \- org.xmlunit:xmlunit-core:jar:2.6.3:test
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:47 min
+[INFO] Finished at: 2019-10-12T15:03:10+05:30
+[INFO] ------------------------------------------------------------------------
+
+C:\New_folder\Spring-boot-01-10-19\spring-mvc-boot>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+         
+      

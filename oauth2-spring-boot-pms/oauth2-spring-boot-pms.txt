@@ -1,0 +1,73 @@
+18-05-2020:
+2.Authorization code grant:
+
+http://localhost:5555/EX/api/products
+http://localhost:5555/EX/api/users/me        GET
+
+http://localhost:5555/EX/oauth/authorize?client_id=clientapp&response_type=code&scope=read write   GET
+Login usename[giridhar] and password[9492011] if wrong bad credentials
+get authorization_code ex.. Y8TjJK
+http://localhost:8081/login?code=pe3fIS
+
+
+http://localhost:5555/EX/oauth/token?grant_type=authorization_code&code=pe3fIS     POST
+Authorization tab-->
+    Type[Basic auth]-->
+          username[clientapp] and password[123456]
+{
+    "access_token": "5cf0e00d-95bc-4375-a104-d4596fdf2c0d",
+    "token_type": "bearer",
+    "refresh_token": "1aa7b637-c27b-4cb3-9736-cb31d688ebd3",
+    "expires_in": 43198,
+    "scope": "read write"
+}
+http://localhost:5555/EX/api/products?access_token=5cf0e00d-95bc-4375-a104-d4596fdf2c0d
+http://localhost:5555/EX/api/users/me?access_token=5cf0e00d-95bc-4375-a104-d4596fdf2c0d    
+http://localhost:5555/EX/api/users/me?refresh_token=f5d0a963-a98e-421e-8960-15571be5b426
+{
+name: "giridhar",
+email: "giridhar@pivotalteam.com"
+}
+
+[
+
+{
+"productId": 333,
+"productName": "Namw",
+"price": 5,
+"manufacturer": "155"
+},
+{
+"productId": 3333,
+"productName": "PENDRIVE",
+"price": 600,
+"manufacturer": "SANDISK"
+},
+{
+"productId": 6666,
+"productName": "MicrosoftW10",
+"price": 15000,
+"manufacturer": "Microsoft"
+},
+{
+"productId": 7777,
+"productName": "REFREGIRATOR",
+"price": 1400,
+"manufacturer": "LG"
+},
+{
+"productId": 8888,
+"productName": "GoogleAssistant",
+"price": 1000,
+"manufacturer": "GOOGLE"
+},
+{
+"productId": 9999,
+"productName": "SiriAssistant",
+"price": 1500,
+"manufacturer": "APPILE"
+}
+]
+
+
+

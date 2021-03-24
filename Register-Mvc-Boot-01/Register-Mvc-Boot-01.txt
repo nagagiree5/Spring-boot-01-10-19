@@ -1,0 +1,418 @@
+18-10-2019
+
+In MySql->>
+
+CREATE TABLE `giridb`.`register_user` (
+  `fullname` INT NOT NULL,
+  `email` VARCHAR(25) NOT NULL,
+  `experience` INT NOT NULL,
+  `gender` VARCHAR(10) NOT NULL,
+  `dateofbirth` DATE NOT NULL,
+  PRIMARY KEY (`email`));
+
+ALTER TABLE `giridb`.`register_user` 
+CHANGE COLUMN `email` `email` VARCHAR(35) NOT NULL ;
+
+ALTER TABLE `giridb`.`register_user` 
+CHANGE COLUMN `fullname` `fullname` VARCHAR(25) NOT NULL ;
+
+INSERT INTO `giridb`.`register_user` (`fullname`, `email`, `experience`, `gender`, `dateofbirth`) VALUES (?,?,?,?,?);
+
+Note yml file:
+***************
+server:
+   port: 9777
+   servlet:
+        context-path: /RegisterMvcBoot
+spring:
+      mvc:
+          view:
+              prefix: /
+              suffix: .jsp               
+      datasource:
+                driverClassName: com.mysql.cj.jdbc.Driver
+                url: jdbc:mysql://localhost:3306/giridb
+                username: root
+                password: giridb
+                             
+ mysql> select * from giridb.register_user;
++------------+------------------------------+------------+--------+-------------+
+| fullname   | email                        | experience | gender | dateofbirth |
++------------+------------------------------+------------+--------+-------------+
+| Ngagagiri  | nagagirigollapalli@gmail.com |          5 | MALE   | 1998-02-26  |
+| PoojaHegde | poojahegde@gmail.com         |          5 | FEMALE | 1991-10-13  |
++------------+------------------------------+------------+--------+-------------+
+2 rows in set (0.30 sec)
+
+mysql>       
+   
+*************************************************************************************************************************
+Oracle-->
+
+String query="INSERT INTO giridb.register_user(fullname,email,experience, gender,dateofbirth) VALUES (?,?,?,?,?)";
+int  i= jdbcTemplate.queryForObject("SELECT COUNT(*) FROM register_user WHERE email=?", Integer.class,email);
+
+oracle.jdbc.driver.OracleDriver
+jdbc:oracle:thin:@localhost:1521/xe
+giridb
+giridb
+
+http://localhost:9888/RegisterMvcBoot/reqForword.jsp
+
+User Details :
+Fullname : Nagagiri
+Email : nagagirigollapalli@gmail.com
+Experience : 5
+Gender : MALE
+Date of Birth : Thu Feb 26 00:00:00 IST 1998
+	
+In Oracle:>>
+
+SQL> CREATE TABLE REGISTER_USER(FULLNAME VARCHAR2(25) NOT NULL ,
+  2  EMAIL VARCHAR2(35) NOT NULL ,
+  3  EXPERIENCE NUMBER(10) NOT NULL ,
+  4  GENDER VARCHAR2(10) NOT NULL ,
+  5  DATEOFBIR DATE NOT NULL ,
+  6  CONSTRAINT REGISTER_USER_PK PRIMARY KEY
+  7  (EMAIL)
+  8    ENABLE
+  9  );
+
+Table created.
+
+SQL> select * from register_user;
+
+FULLNAME                  EMAIL                               EXPERIENCE
+------------------------- ----------------------------------- ----------
+GENDER     DATEOFBIR
+---------- ---------
+PoojaHegde                hegdepooja@gmail.com                         5
+FEMALE     26-FEB-98
+
+Nagagiri                  nagagirigollapalli@gmail.com                 5
+MALE       26-FEB-98
+SQL>
+
+This Mail is Alredy Exist:
+"kesava@gmail.com" This mail is alredy used...
+
+
+In pom.xml
+
+<dependency>   <!-- ojdbc14 not suitable but ojdbc6 is suitable For Orcle11XE ... -->
+    <groupId>com.oracle</groupId>
+    <artifactId>ojdbc6</artifactId>
+    <version>10.2.0.4.0</version> <!--Version also mandatory Cz not available in central repo...-->
+</dependency> 
+	
+http://localhost:9888/RegisterMvcBoot/reqForword.jsp
+
+With ojdbc14:
+	
+	Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Mon Oct 21 14:35:28 IST 2019
+There was an unexpected error (type=Internal Server Error, status=500).
+oracle.jdbc.driver.T4CConnection.isValid(I)Z
+
+In Cmd-->
+ mvn install:install-file -Dfile=C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6.jar -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.4.0 -Dpackaging=jar
+
+<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
+<dependency>
+    <groupId>com.oracle</groupId>
+    <artifactId>ojdbc14</artifactId>
+    <version>10.2.0.4.0</version>
+ </dependency>
+ 
+ 
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-18 00:33:37.424  INFO 1940 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : Starting RegisterMvcBootApplication on SAIGIRI with PID 1940 (C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01)
+2019-10-18 00:33:37.438  INFO 1940 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : No active profile set, falling back to default profiles: default
+2019-10-18 00:33:39.331  INFO 1940 --- [           main] org.eclipse.jetty.util.log               : Logging initialized @3134ms to org.eclipse.jetty.util.log.Slf4jLog
+2019-10-18 00:33:39.472  INFO 1940 --- [           main] o.s.b.w.e.j.JettyServletWebServerFactory : Server initialized with port: 9492
+2019-10-18 00:33:39.476  INFO 1940 --- [           main] org.eclipse.jetty.server.Server          : jetty-9.4.19.v20190610; built: 2019-06-10T16:30:51.723Z; git: afcf563148970e98786327af5e07c261fda175d3; jvm 1.8.0_171-b11
+2019-10-18 00:33:39.530  INFO 1940 --- [           main] o.e.j.s.h.ContextHandler.application     : Initializing Spring embedded WebApplicationContext
+2019-10-18 00:33:39.530  INFO 1940 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2007 ms
+2019-10-18 00:33:39.704  INFO 1940 --- [           main] org.eclipse.jetty.server.session         : DefaultSessionIdManager workerName=node0
+2019-10-18 00:33:39.704  INFO 1940 --- [           main] org.eclipse.jetty.server.session         : No SessionScavenger set, using defaults
+2019-10-18 00:33:39.706  INFO 1940 --- [           main] org.eclipse.jetty.server.session         : node0 Scavenging every 600000ms
+2019-10-18 00:33:39.717  INFO 1940 --- [           main] o.e.jetty.server.handler.ContextHandler  : Started o.s.b.w.e.j.JettyEmbeddedWebAppContext@1c6e0a08{application,/RegisterMvcBoot,[org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory$LoaderHidingResource@6dba847b],AVAILABLE}
+2019-10-18 00:33:39.717  INFO 1940 --- [           main] org.eclipse.jetty.server.Server          : Started @3523ms
+2019-10-18 00:33:40.142  INFO 1940 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-18 00:33:40.676  INFO 1940 --- [           main] o.e.j.s.h.ContextHandler.application     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-18 00:33:40.676  INFO 1940 --- [           main] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-18 00:33:40.686  INFO 1940 --- [           main] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2019-10-18 00:33:41.311  INFO 1940 --- [           main] o.e.jetty.server.AbstractConnector       : Started ServerConnector@1a38ba58{HTTP/1.1,[http/1.1]}{0.0.0.0:9492}
+2019-10-18 00:33:41.314  INFO 1940 --- [           main] o.s.b.web.embedded.jetty.JettyWebServer  : Jetty started on port(s) 9492 (http/1.1) with context path '/RegisterMvcBoot'
+2019-10-18 00:33:41.317  INFO 1940 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : Started RegisterMvcBootApplication in 4.583 seconds (JVM running for 5.122)
+
+
+   [http://localhost:9555/RegisterMvcBoot/registerUser       ]
+**********************************************************************************************
+>>In browser:
+
+Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Fri Oct 18 01:05:13 IST 2019
+There was an unexpected error (type=Method Not Allowed, status=405).
+Request method 'GET' not supported
+
+
+>>In Eclipse console:
+2019-10-18 01:05:13.637  WARN 37140 --- [nio-9555-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+
+
+
+***[http://localhost:9555/RegisterMvcBoot/reqForword.jsp     ]***
+**********************************************************************************************
+>>In browser:
+Fullname :  [               ]	
+Email :	    [               ]
+Experience :[0              ]	
+
+Gender :     *Male  *Female	
+Date of Birth(yyyy.MM.dd):[         ]
+[sumit]
+
+
+>>In Eclipse console:
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-18 01:01:27.051  INFO 37140 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : Starting RegisterMvcBootApplication on SAIGIRI with PID 37140 (C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01)
+2019-10-18 01:01:27.056  INFO 37140 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : No active profile set, falling back to default profiles: default
+2019-10-18 01:01:29.648  INFO 37140 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9555 (http)
+2019-10-18 01:01:29.692  INFO 37140 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-18 01:01:29.693  INFO 37140 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-18 01:01:29.938  INFO 37140 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-18 01:01:29.944  INFO 37140 --- [           main] o.a.c.c.C.[.[.[/RegisterMvcBoot]         : Initializing Spring embedded WebApplicationContext
+2019-10-18 01:01:29.945  INFO 37140 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2807 ms
+2019-10-18 01:01:30.443  INFO 37140 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-18 01:01:30.936  INFO 37140 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9555 (http) with context path '/RegisterMvcBoot'
+2019-10-18 01:01:30.940  INFO 37140 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : Started RegisterMvcBootApplication in 4.646 seconds (JVM running for 5.183)
+2019-10-18 01:02:22.865  INFO 37140 --- [nio-9555-exec-1] o.a.c.c.C.[.[.[/RegisterMvcBoot]         : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-18 01:02:22.865  INFO 37140 --- [nio-9555-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-18 01:02:22.883  INFO 37140 --- [nio-9555-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
+
+
+
+Note:If Build is fail...Remove src/test/java...
+1.In Eclipse Right click on project
+                   Run as-->>4.Maven build...-->>Goal:package or clean package-->>Run  [Refesh project JAR file is created on target...] 
+cmd:-->>           mvn clean spring-boot:run
+**********************************************************************************
+
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.satya.boot:Register-MVC-Boot >------------------
+[INFO] Building Register-MVC-Boot 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ Register-MVC-Boot ---
+[INFO] Deleting C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01\target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ Register-MVC-Boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ Register-MVC-Boot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ Register-MVC-Boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ Register-MVC-Boot ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ Register-MVC-Boot ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ Register-MVC-Boot ---
+[INFO] Building jar: C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01\target\Register-MVC-Boot-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.9.RELEASE:repackage (repackage) @ Register-MVC-Boot ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.624 s
+[INFO] Finished at: 2019-10-18T01:41:48+05:30
+[INFO] ------------------------------------------------------------------------
+
+
+Note:In cmd-->>With out mvn-plugin
+***********************************
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>cd C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01
+C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01>java -jar target\Register-MVC-Boot-0.0.1-SNAPSHOT.jar com.mvnrepo.RegisterMvcBootApplication --server.port=8585
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-18 01:54:42.698  INFO 13820 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : Starting RegisterMvcBootApplication v0.0.1-SNAPSHOT on SAIGIRI with PID 13820 (C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01\target\Register-MVC-Boot-0.0.1-SNAPSHOT.jar started by girid in C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01)
+2019-10-18 01:54:42.703  INFO 13820 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : No active profile set, falling back to default profiles: default
+2019-10-18 01:54:45.238  INFO 13820 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8585 (http)
+2019-10-18 01:54:45.277  INFO 13820 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-18 01:54:45.278  INFO 13820 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-18 01:54:46.807  INFO 13820 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-18 01:54:46.887  INFO 13820 --- [           main] o.a.c.c.C.[.[.[/RegisterMvcBoot]         : Initializing Spring embedded WebApplicationContext
+2019-10-18 01:54:46.887  INFO 13820 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4102 ms
+2019-10-18 01:54:47.588  INFO 13820 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-18 01:54:47.952  INFO 13820 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8585 (http) with context path '/RegisterMvcBoot'
+2019-10-18 01:54:47.957  INFO 13820 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : Started RegisterMvcBootApplication in 6.007 seconds (JVM running for 6.588)
+
+
+Note:In Browser
+***[http://localhost:8585/RegisterMvcBoot/reqForword.jsp     ]***
+**********************************************************************************************
+Fullname :  [               ]	
+Email :	    [               ]
+Experience :[0              ]	
+
+Gender :     *Male  *Female	
+Date of Birth(yyyy.MM.dd):[         ]
+[sumit]
+
+
+Note:To Stop Server:-
+In cmd-->Ctrl+C
+**********************
+2019-10-18 01:59:24.139  INFO 13820 --- [nio-8585-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 23 ms
+2019-10-18 02:00:13.942  INFO 13820 --- [       Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+
+C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01>
+
+
+Note:With maven-plugin
+Cmd-->
+****************************************************
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>cd C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01
+C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01>mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=9497
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------< com.satya.boot:Register-MVC-Boot >------------------
+[INFO] Building Register-MVC-Boot 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] >>> spring-boot-maven-plugin:2.1.9.RELEASE:run (default-cli) > test-compile @ Register-MVC-Boot >>>
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ Register-MVC-Boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ Register-MVC-Boot ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ Register-MVC-Boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ Register-MVC-Boot ---
+[INFO] No sources to compile
+[INFO]
+[INFO] <<< spring-boot-maven-plugin:2.1.9.RELEASE:run (default-cli) < test-compile @ Register-MVC-Boot <<<
+[INFO]
+[INFO]
+[INFO] --- spring-boot-maven-plugin:2.1.9.RELEASE:run (default-cli) @ Register-MVC-Boot ---
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-18 02:06:09.811  INFO 15428 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : Starting RegisterMvcBootApplication on SAIGIRI with PID 15428 (C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01)
+2019-10-18 02:06:09.819  INFO 15428 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : No active profile set, falling back to default profiles: default
+2019-10-18 02:06:12.515  INFO 15428 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9497 (http)
+2019-10-18 02:06:12.552  INFO 15428 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-18 02:06:12.553  INFO 15428 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-18 02:06:12.854  INFO 15428 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-18 02:06:12.861  INFO 15428 --- [           main] o.a.c.c.C.[.[.[/RegisterMvcBoot]         : Initializing Spring embedded WebApplicationContext
+2019-10-18 02:06:12.861  INFO 15428 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2973 ms
+2019-10-18 02:06:13.344  INFO 15428 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-18 02:06:13.762  INFO 15428 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9497 (http) with context path '/RegisterMvcBoot'
+2019-10-18 02:06:13.769  INFO 15428 --- [           main] com.mvnrepo.RegisterMvcBootApplication   : Started RegisterMvcBootApplication in 4.833 seconds (JVM running for 29.355)
+
+C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01>mvn clean spring-boot:run -Dspring-boot.run.arguments=--server.port=9497
+Note:In Browser
+***[http://localhost:9497/RegisterMvcBoot/reqForword.jsp     ]***
+**********************************************************************************************
+Fullname :  [               ]	
+Email :	    [               ]
+Experience :[0              ]	
+
+Gender :     *Male  *Female	
+Date of Birth(yyyy.MM.dd):[         ]
+[sumit]
+
+
+
+Note:To Stop Server:-
+Ctrl+Shift+C or Ctrl+C 
+***********************  
+2019-10-18 02:11:32.058  INFO 15428 --- [nio-9497-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 25 ms
+2019-10-18 02:11:56.126  INFO 15428 --- [       Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+[Terminate batch job (Y/N)? y
+
+C:\New_folder\Spring-boot-01-10-19\Register-Mvc-Boot-01>
+
+
+In Eclipse
+  Right click on project              [clean spring-boot:run -Dspring-boot.run.arguments=--server.port=9497]
+      Run as-->4.Mavenbuild...--> goal[spring-boot:run -Dspring-boot.run.arguments=--server.port=9497]
+
+
+
+Note:In Browser
+***[http://localhost:9497/RegisterMvcBoot/reqForword.jsp     ]***
+**********************************************************************************************
+Fullname :  [               ]	
+Email :	    [               ]
+Experience :[0              ]	
+
+Gender :     *Male  *Female	
+Date of Birth(yyyy.MM.dd):[         ]
+[sumit]
+
+
+
+
+
+
+
+
+
+
+
+

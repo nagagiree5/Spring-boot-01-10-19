@@ -1,0 +1,5 @@
+http://localhost:5555/
+http://localhost:5555/error
+
+It starts with a simple, single-provider single-sign on, and works up to a client with a choice of authentication providers:
+https://github.com/settings/developers[GitHub] or https://developers.google.com/identity/protocols/OpenIDConnect[Google].

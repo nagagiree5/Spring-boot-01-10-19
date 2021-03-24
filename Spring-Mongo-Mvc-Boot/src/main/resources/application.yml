@@ -1,0 +1,15 @@
+server:
+   port: 4555
+   servlet:
+        context-path: /ems
+spring:
+   mvc:
+      view:
+          prefix: /
+          suffix: .jsp          
+   data:
+      mongodb:
+            database: giridb
+            port: 27017
+            host: localhost
+            

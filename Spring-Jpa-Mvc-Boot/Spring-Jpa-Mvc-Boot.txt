@@ -1,0 +1,469 @@
+24-10-19:>>
+
+
+1>>In browser:
+
+***[http://localhost:4344/ems/linksPage.jsp    ]***
+---------------------------------------------
+              Register-->>
+              ListOfEmployees-->>
+---------------------------------------------
+
+
+
+2>>Note:"Register-->>" click this link
+>>In browser:
+===================================================
+[   http://localhost:4344/ems/getRegisterPage    ]
+
+Fullname :[girigollapalli  ]	
+Email :	  [giri@gmail.com  ]
+Experience :[5             ]	
+Gender : *Male  Female
+Date of Birth(yyyy.MM.dd):[1998.02.26]	
+
+[Sumit]
+====================================================
+
+
+
+
+3>>Note "Sumit" click it:
+>>In browser:
+
+====================================================
+[http://localhost:4344/ems/getRegister]
+
+Employee added to Database
+----------------------------------------------------
+              Register-->>
+              ListOfEmployees-->>
+----------------------------------------------------
+=====================================================
+
+
+
+
+4>>Note:"ListOfEmployees-->>" click this link
+>>In browser:
+=============================================================================================================
+[http://localhost:4344/ems/listOfEmployees]
+
+Register-->>
+
+[FullName]	[Email]	                   [Experience]     [DateOfBirth]      [Gender]	   [Actions]
+Pallavi   	capallavi@gmail.com	        5	1997-01-05 00:00:00.0   FEMALE	Edit   Delete
+Kesava	        kesava@gmail.com	        8	1991-11-11 00:00:00.0	MALE	Edit   Delete
+giridhar	nagagiri@gmail   	        5	1998-02-21 00:00:00.0	MALE	Edit   Delete
+NagaGiridhar	nagagirigollapalli@gmail.com	3	1998-02-26 00:00:00.0	MALE	Edit   Delete
+Nothing2	nothing@gmail.com	        6	1998-02-26 00:00:00.0	FEMALE	Edit   Delete
+PoojaHegde	poojahegde@gmail.com	        6	1991-10-13 00:00:00.0	FEMALE	Edit   Delete
+==============================================================================================================
+
+
+5>>Note:"Edit" click it...
+Note:Mail is not editable...Not allow to typing... "<td><form:input    path="email" readonly="true" /> </td>" 
+>>In browser:
+=================================================================================================================
+[http://localhost:4344/ems/editEmployeePage?email=poojahegde@gmail.com]
+
+Fullname : [PoojaHegde]
+Email :	[poojahegde@gmail.com] 
+Experience:[6]
+Gender : Male *Female
+Date of Birth(yyyy.MM.dd):1990.10.13
+[Submit]
+=================================================================================================================
+
+
+
+
+
+6>>Note:"Submit" click it...
+>>In browser:
+==================================================================================================================
+[http://localhost:4344/ems/updateEmployee]
+
+Register-->>
+
+[FullName]	[Email]	                   [Experience]     [DateOfBirth]           [Gender]	[Actions]
+Pallavi   	capallavi@gmail.com	        5	1997-01-05 00:00:00.0        FEMALE    Edit   Delete
+Kesava	        kesava@gmail.com	        8	1991-11-11 00:00:00.0	     MALE      Edit   Delete
+giridhar	nagagiri@gmail   	        5	1998-02-21 00:00:00.0	     MALE      Edit   Delete
+NagaGiridhar	nagagirigollapalli@gmail.com	3	1998-02-26 00:00:00.0	     MALE      Edit   Delete
+Nothing2	nothing@gmail.com	        6	1998-02-26 00:00:00.0	     FEMALE    Edit   Delete
+PoojaHegde	poojahegde@gmail.com	        6	Sat Oct 13 00:00:00 IST 1990 FEMALE    Edit   Delete
+===================================================================================================================
+
+
+
+
+
+7>>Note:"Delete" click it...
+>>In browser:
+===================================================================================================================
+[http://localhost:4344/ems/deleteEmployee?email=nagagiri@gmail]
+
+Register-->>
+
+[FullName]	[Email]	                   [Experience]     [DateOfBirth]           [Gender]	[Actions]
+Pallavi   	capallavi@gmail.com	        5	1997-01-05 00:00:00.0        FEMALE    Edit   Delete
+Kesava	        kesava@gmail.com	        8	1991-11-11 00:00:00.0	     MALE      Edit   Delete
+NagaGiridhar	nagagirigollapalli@gmail.com	3	1998-02-26 00:00:00.0	     MALE      Edit   Delete
+Nothing2	nothing@gmail.com	        6	1998-02-26 00:00:00.0	     FEMALE    Edit   Delete
+PoojaHegde	poojahegde@gmail.com	        6	1990-10-13 00:00:00.0        FEMALE    Edit   Delete
+====================================================================================================================
+
+
+
+[http://localhost:4344/ems/getRegisterPage]
+
+Fullname : [PoojaHegde]
+Email :	[kesava@gmail.com] 
+Experience:[6]
+Gender : Male *Female
+Date of Birth(yyyy.MM.dd):1990.10.13
+[Submit]
+
+
+[http://localhost:4344/ems/getRegister]
+Sorry, employee already exists!!!
+---------------------------------------------------------------------
+                         Register-->>
+                         ListOfEmployees-->>
+---------------------------------------------------------------------
+
+
+Note>>In MySQL:
+
+mysql> SELECT * FROM giridb.emp_tab;
++------------------------------+----------------------------+------------+--------------+--------+
+| email                        | date_of_birth              | experience | full_name    | gender |
++------------------------------+----------------------------+------------+--------------+--------+
+| capallavi@gmail.com          | 1997-01-05 00:00:00.000000 |          5 | Pallavi      | FEMALE |
+| kesava@gmail.com             | 1991-11-11 00:00:00.000000 |          8 | Kesava       | MALE   |
+| nagagirigollapalli@gmail.com | 1998-02-26 00:00:00.000000 |          3 | NagaGiridhar | MALE   |
+| nothing@gmail.com            | 1998-02-26 00:00:00.000000 |          6 | Nothing2     | FEMALE |
+| poojahegde@gmail.com         | 1990-10-13 00:00:00.000000 |          6 | PoojaHegde   | FEMALE |
++------------------------------+----------------------------+------------+--------------+--------+
+5 rows in set (0.00 sec)
+
+
+Note>>In Eclipse console:
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+
+2019-10-24 23:51:02.796  INFO 27720 --- [           main] com.mvnrepo.SpringJpaMvcBootApplication  : Starting SpringJpaMvcBootApplication on SAIGIRI with PID 27720 (C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot)
+2019-10-24 23:51:02.812  INFO 27720 --- [           main] com.mvnrepo.SpringJpaMvcBootApplication  : No active profile set, falling back to default profiles: default
+2019-10-24 23:51:03.980  INFO 27720 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-24 23:51:04.154  INFO 27720 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 159ms. Found 1 repository interfaces.
+2019-10-24 23:51:04.645  INFO 27720 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-24 23:51:05.589  INFO 27720 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 4344 (http)
+2019-10-24 23:51:05.604  INFO 27720 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-24 23:51:05.604  INFO 27720 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-10-24 23:51:05.983  INFO 27720 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-24 23:51:05.983  INFO 27720 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/ems]    : Initializing Spring embedded WebApplicationContext
+2019-10-24 23:51:05.983  INFO 27720 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3062 ms
+2019-10-24 23:51:06.326  INFO 27720 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-10-24 23:51:06.420  INFO 27720 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.6.Final}
+2019-10-24 23:51:06.590  INFO 27720 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-10-24 23:51:06.716  INFO 27720 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-10-24 23:51:07.694  INFO 27720 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-10-24 23:51:07.734  INFO 27720 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-10-24 23:51:08.767  INFO 27720 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-10-24 23:51:08.781  INFO 27720 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-10-24 23:51:09.263  WARN 27720 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-10-24 23:51:09.435  INFO 27720 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-24 23:51:09.732  INFO 27720 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 4344 (http) with context path '/ems'
+2019-10-24 23:51:09.747  INFO 27720 --- [           main] com.mvnrepo.SpringJpaMvcBootApplication  : Started SpringJpaMvcBootApplication in 7.553 seconds (JVM running for 8.144)
+2019-10-24 23:51:43.065  INFO 27720 --- [nio-4344-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/ems]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-24 23:51:43.065  INFO 27720 --- [nio-4344-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-24 23:51:43.081  INFO 27720 --- [nio-4344-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+Hibernate: select count(*) as col_0_0_ from emp_tab employee0_ where employee0_.email=?
+Hibernate: select employee0_.email as email1_0_0_, employee0_.date_of_birth as date_of_2_0_0_, employee0_.experience as experien3_0_0_, employee0_.full_name as full_nam4_0_0_, employee0_.gender as gender5_0_0_ from emp_tab employee0_ where employee0_.email=?
+Hibernate: insert into emp_tab (date_of_birth, experience, full_name, gender, email) values (?, ?, ?, ?, ?)
+
+
+
+
+>>Note:If Build is fail...Remove src/test/java...
+1.In Eclipse Right click on project
+                   Run as-->>4.Maven build...-->>Goal:package or clean package-->>Run  [Refesh project JAR file is created on target...] 
+cmd:-->>           mvn clean spring-boot:run
+**********************************************************************************
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.mvnrepo:Spring-Jpa-Mvc-Boot >-------------------
+[INFO] Building Spring-Jpa-Mvc-Boot 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Deleting C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot\target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Downloading from : https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/2.22.2/surefire-junit-platform-2.22.2.pom
+[INFO] Downloaded from : https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/2.22.2/surefire-junit-platform-2.22.2.pom (7.0 kB at 3.2 kB/s)
+Downloaded...
+[INFO] Downloaded from : https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar (135 kB at 54 kB/s)
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.mvnrepo.SpringJpaMvcBoot.SpringJpaMvcBootApplicationTests
+01:16:19.059 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]true]], class annotated with @DirtiesContext [false] with mode [null].
+loading...
+01:16:19.866 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+
+2019-10-25 01:16:20.471  INFO 53372 --- [           main] c.m.S.SpringJpaMvcBootApplicationTests   : Starting SpringJpaMvcBootApplicationTests on SAIGIRI with PID 53372 (started by girid in C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot)
+2019-10-25 01:16:20.471  INFO 53372 --- [           main] c.m.S.SpringJpaMvcBootApplicationTests   : No active profile set, falling back to default profiles: default
+2019-10-25 01:16:21.717  INFO 53372 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-25 01:16:21.822  INFO 53372 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91ms. Found 1 repository interfaces.
+2019-10-25 01:16:22.369  INFO 53372 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-25 01:16:22.848  INFO 53372 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-10-25 01:16:23.069  INFO 53372 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.6.Final}
+2019-10-25 01:16:23.413  INFO 53372 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-10-25 01:16:24.274  INFO 53372 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-10-25 01:16:25.304  INFO 53372 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-10-25 01:16:25.333  INFO 53372 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-10-25 01:16:26.599  INFO 53372 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-10-25 01:16:26.614  INFO 53372 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-10-25 01:16:27.520  WARN 53372 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-10-25 01:16:28.005  INFO 53372 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-25 01:16:28.715  INFO 53372 --- [           main] c.m.S.SpringJpaMvcBootApplicationTests   : Started SpringJpaMvcBootApplicationTests in 8.809 seconds (JVM running for 11.472)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.162 s - in com.mvnrepo.SpringJpaMvcBoot.SpringJpaMvcBootApplicationTests
+2019-10-25 01:16:29.259  INFO 53372 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-25 01:16:29.259  INFO 53372 --- [extShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-10-25 01:16:29.259  INFO 53372 --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-10-25 01:16:29.290  INFO 53372 --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Building jar: C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot\target\Spring-Jpa-Mvc-Boot-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.2.0.RELEASE:repackage (repackage) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Downloading from : https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/2.2.0.RELEASE/spring-boot-loader-tools-2.2.0.RELEASE.pom
+Downloading...
+[INFO] Downloaded from : https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.13/commons-codec-1.13.jar (344 kB at 328 kB/s)
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:18 min
+[INFO] Finished at: 2019-10-25T01:16:58+05:30
+[INFO] ------------------------------------------------------------------------
+
+
+
+
+>>Note:In cmd-->>With out mvn-plugin
+*************************************
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>cd C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot
+C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot>java -jar target\Spring-Jpa-Mvc-Boot-0.0.1-SNAPSHOT.jar com.mvnrepo.SpringJpaMvcBootApplication --server.port=8585
+
+C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot>java -jar target\Spring-Jpa-Mvc-Boot-0.0.1-SNAPSHOT.jar com.mvnrepo.SpringJpaMvcBootApplication
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+
+2019-10-25 01:50:55.067  INFO 24088 --- [           main] com.mvnrepo.SpringJpaMvcBootApplication  : Starting SpringJpaMvcBootApplication v0.0.1-SNAPSHOT on SAIGIRI with PID 24088 (C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot\target\Spring-Jpa-Mvc-Boot-0.0.1-SNAPSHOT.jar started by girid in C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot)
+2019-10-25 01:50:55.075  INFO 24088 --- [           main] com.mvnrepo.SpringJpaMvcBootApplication  : No active profile set, falling back to default profiles: default
+2019-10-25 01:50:56.161  INFO 24088 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-25 01:50:56.255  INFO 24088 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72ms. Found 1 repository interfaces.
+2019-10-25 01:50:56.670  INFO 24088 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-25 01:50:57.675  INFO 24088 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 4344 (http)
+2019-10-25 01:50:57.692  INFO 24088 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-25 01:50:57.692  INFO 24088 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-10-25 01:50:58.243  INFO 24088 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-25 01:50:58.641  INFO 24088 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/ems]    : Initializing Spring embedded WebApplicationContext
+2019-10-25 01:50:58.642  INFO 24088 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3456 ms
+2019-10-25 01:50:58.994  INFO 24088 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-10-25 01:50:59.103  INFO 24088 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.6.Final}
+2019-10-25 01:50:59.344  INFO 24088 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-10-25 01:50:59.483  INFO 24088 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-10-25 01:51:00.601  INFO 24088 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-10-25 01:51:00.640  INFO 24088 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-10-25 01:51:01.594  INFO 24088 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-10-25 01:51:01.596  INFO 24088 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-10-25 01:51:02.055  WARN 24088 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-10-25 01:51:02.261  INFO 24088 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-25 01:51:02.728  INFO 24088 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 4344 (http) with context path '/ems'
+2019-10-25 01:51:02.738  INFO 24088 --- [           main] com.mvnrepo.SpringJpaMvcBootApplication  : Started SpringJpaMvcBootApplication in 8.386 seconds (JVM running for 9.241)
+2019-10-25 01:52:10.332  INFO 24088 --- [nio-4344-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/ems]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-25 01:52:10.332  INFO 24088 --- [nio-4344-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-25 01:52:10.366  INFO 24088 --- [nio-4344-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 28 ms
+Hibernate: select employee0_.email as email1_0_, employee0_.date_of_birth as date_of_2_0_, employee0_.experience as experien3_0_, employee0_.full_name as full_nam4_0_, employee0_.gender as gender5_0_ from emp_tab employee0_
+
+In browser:
+===========
+[http://localhost:4344/ems/linksPage.jsp ]working
+http://localhost:8585/ems/linksPage.jsp
+http://localhost:9497/ems/linksPage.jsp
+
+Note:Ctrl+C:
+2019-10-25 01:53:58.687  INFO 24088 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-25 01:53:58.689  INFO 24088 --- [extShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-10-25 01:53:58.698  INFO 24088 --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-10-25 01:53:58.749  INFO 24088 --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot>
+
+
+Note:With maven-plugin
+Cmd-->
+****************************************************
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot>mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=9497
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------< com.mvnrepo:Spring-Jpa-Mvc-Boot >-------------------
+[INFO] Building Spring-Jpa-Mvc-Boot 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] >>> spring-boot-maven-plugin:2.2.0.RELEASE:run (default-cli) > test-compile @ Spring-Jpa-Mvc-Boot >>>
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] <<< spring-boot-maven-plugin:2.2.0.RELEASE:run (default-cli) < test-compile @ Spring-Jpa-Mvc-Boot <<<
+[INFO]
+[INFO]
+[INFO] --- spring-boot-maven-plugin:2.2.0.RELEASE:run (default-cli) @ Spring-Jpa-Mvc-Boot ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+
+2019-10-25 02:06:21.784  INFO 24700 --- [           main] com.mvnrepo.SpringJpaMvcBootApplication  : Starting SpringJpaMvcBootApplication on SAIGIRI with PID 24700 (C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot)
+2019-10-25 02:06:21.784  INFO 24700 --- [           main] com.mvnrepo.SpringJpaMvcBootApplication  : No active profile set, falling back to default profiles: default
+2019-10-25 02:06:22.401  INFO 24700 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-25 02:06:22.511  INFO 24700 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 101ms. Found 1 repository interfaces.
+2019-10-25 02:06:22.754  INFO 24700 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-25 02:06:23.535  INFO 24700 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9497 (http)
+2019-10-25 02:06:23.549  INFO 24700 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-25 02:06:23.550  INFO 24700 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-10-25 02:06:23.924  INFO 24700 --- [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-10-25 02:06:23.931  INFO 24700 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/ems]    : Initializing Spring embedded WebApplicationContext
+2019-10-25 02:06:23.933  INFO 24700 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2089 ms
+2019-10-25 02:06:24.074  INFO 24700 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-10-25 02:06:24.138  INFO 24700 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.6.Final}
+2019-10-25 02:06:24.262  INFO 24700 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-10-25 02:06:24.354  INFO 24700 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-10-25 02:06:25.242  INFO 24700 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-10-25 02:06:25.266  INFO 24700 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-10-25 02:06:25.920  INFO 24700 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-10-25 02:06:25.931  INFO 24700 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-10-25 02:06:26.189  WARN 24700 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-10-25 02:06:26.350  INFO 24700 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-25 02:06:26.627  INFO 24700 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9497 (http) with context path '/ems'
+2019-10-25 02:06:26.632  INFO 24700 --- [           main] com.mvnrepo.SpringJpaMvcBootApplication  : Started SpringJpaMvcBootApplication in 5.246 seconds (JVM running for 5.741)
+2019-10-25 02:07:46.031  INFO 24700 --- [nio-9497-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/ems]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-25 02:07:46.032  INFO 24700 --- [nio-9497-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-25 02:07:46.070  INFO 24700 --- [nio-9497-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 30 ms
+
+
+[http://localhost:9497/ems/linksPage.jsp] working...
+
+
+Ctrl+C:
+=======
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:20 min
+[INFO] Finished at: 2019-10-25T02:14:11+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:2.2.0.RELEASE:run (default-cli) on project Spring-Jpa-Mvc-Boot: Application finished with exit code: 1 -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+Terminate batch job (Y/N)? Y
+
+C:\New_folder\Spring-boot-01-10-19\Spring-Jpa-Mvc-Boot>
+
+
+Note>>In Eclipse:
+  Right click on project              [clean spring-boot:run -Dspring-boot.run.arguments=--server.port=9497]
+      Run as-->4.Mavenbuild...--> goal[spring-boot:run -Dspring-boot.run.arguments=--server.port=9497]
+
+In browser:
+[http://localhost:9497/ems/linksPage.jsp] working...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

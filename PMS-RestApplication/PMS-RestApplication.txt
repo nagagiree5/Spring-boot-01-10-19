@@ -1,0 +1,290 @@
+http://localhost:4343/PMS/product/1111
+http://localhost:4343/PMS/products
+http://localhost:4343/PMS/product/create
+
+//Versioning 
+=====================================================================
+http://localhost:4343/PMS/v1/products               GET
+http://localhost:4343/PMS/v2/products
+
+http://localhost:4343/PMS/products?version=1.0
+http://localhost:4343/PMS/products?version=2.0
+
+http://localhost:4343/PMS/products
+Thru Postman:
+hearders tab
+
+[KEY]                [VALUE ]     
+API-VERSION          2.0
+=======================================================================
+{
+"productId":5555,
+"productName":"POWERBANK",
+"price":1500.0,
+"manufacturer":"SONY"
+}
+http://localhost:4343/PMS/product/update
+{
+"productId":5555,
+"productName":"POWE-RBANK",
+"price":1400.0,
+"manufacturer":"SONY"
+}
+http://localhost:4343/PMS/product/delete?id=1111
+
+
+http://localhost:4343/PMS/product/5555
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<product>
+    <productId>5555</productId>
+    <productName>POWE-RBANK</productName>
+    <price>1400.0</price>
+    <manufacturer>SONY</manufacturer>
+</product>
+
+
+
+http://localhost:4343/PMS/products
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<products>
+    <product>
+        <productId>3333</productId>
+        <productName>PENDRIVE</productName>
+        <price>600.0</price>
+        <manufacturer>SANDISK</manufacturer>
+    </product>
+    <product>
+        <productId>5555</productId>
+        <productName>POWE-RBANK</productName>
+        <price>1400.0</price>
+        <manufacturer>SONY</manufacturer>
+    </product>
+    <product>
+        <productId>6666</productId>
+        <productName>MicrosoftW10</productName>
+        <price>15000.0</price>
+        <manufacturer>Microsoft</manufacturer>
+    </product>
+</products>
+
+
+http://localhost:4343/PMS/product/create
+<product>
+    <productId>7777</productId>
+    <productName>REFREGIRATOR</productName>
+    <price>1400.0</price>
+    <manufacturer>LG</manufacturer>
+</product>
+
+
+{
+"productId":8888,
+"productName":"GOOGLEASSISTANT",
+"price":1000.0,
+"manufacturer":"GOOGLE"
+}
+
+<product>
+    <productId>9999</productId>
+    <productName>SIRI</productName>
+    <price>1400.0</price>
+    <manufacturer>APPILE</manufacturer>
+</product>
+
+http://localhost:4343/PMS/product/update
+
+<product>
+    <productId>9999</productId>
+    <productName>SiriAssistant</productName>
+    <price>1500.0</price>
+    <manufacturer>APPILE</manufacturer>
+</product>
+
+{
+"productId":8888,
+"productName":"GoogleAssistant",
+"price":1000.0,
+"manufacturer":"GOOGLE"
+}
+
+================================================================================================
+http://localhost:4343/PMS/products
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<products>
+    <product>
+        <productId>3333</productId>
+        <productName>PENDRIVE</productName>
+        <manufacturer>SANDISK</manufacturer>
+    </product>
+    <product>
+        <productId>5555</productId>
+        <productName>POWE-RBANK</productName>
+        <manufacturer>SONY</manufacturer>
+    </product>
+    <product>
+        <productId>6666</productId>
+        <productName>MicrosoftW10</productName>
+        <manufacturer>Microsoft</manufacturer>
+    </product>
+    <product>
+        <productId>7777</productId>
+        <productName>REFREGIRATOR</productName>
+        <manufacturer>LG</manufacturer>
+    </product>
+    <product>
+        <productId>8888</productId>
+        <productName>GoogleAssistant</productName>
+        <manufacturer>GOOGLE</manufacturer>
+    </product>
+    <product>
+        <productId>9999</productId>
+        <productName>SiriAssistant</productName>
+        <manufacturer>APPILE</manufacturer>
+    </product>
+</products>
+
+http://localhost:4343/PMS/products
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<products>
+    <product productId="3333">
+        <productName>PENDRIVE</productName>
+        <manufacturer>SANDISK</manufacturer>
+    </product>
+    <product productId="5555">
+        <productName>POWE-RBANK</productName>
+        <manufacturer>SONY</manufacturer>
+    </product>
+    <product productId="6666">
+        <productName>MicrosoftW10</productName>
+        <manufacturer>Microsoft</manufacturer>
+    </product>
+    <product productId="7777">
+        <productName>REFREGIRATOR</productName>
+        <manufacturer>LG</manufacturer>
+    </product>
+    <product productId="8888">
+        <productName>GoogleAssistant</productName>
+        <manufacturer>GOOGLE</manufacturer>
+    </product>
+    <product productId="9999">
+        <productName>SiriAssistant</productName>
+        <manufacturer>APPILE</manufacturer>
+    </product>
+</products>
+
+================================================================================================
+2020-05-04:
+CORS(Cross Origin Request Support): bydefault not enable
+#Script belongs to same domain it will access thru rest but diffrent domain script not allowed to access 
+1.Rest controller class level enable
+2.Restcontroller methods level enable
+3.Enable globally at entire application
+
+***
+1.Rest controller class level enable
+2.Restcontroller methods level enable
+    @CrossOrigin
+          origins
+          methods
+          allowedHeaders
+    origin="*" script belongs to any domain 
+    methods="*" or methods="GET" it allowed all or GET
+    
+@SpringBootApplication
+public class PmsRestApplication implements WebMvcConfigurer  {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PmsRestApplication.class, args);
+	}
+	
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+		// TODO Auto-generated method stub
+		registry.addMapping("/**").allowedOrigins("*").allowedMethods("*");
+		       //WebMvcConfigurer.super.addCorsMappings(registry);
+	}
+	    
+    
+    
+2020-05-08:
+<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>2.9.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>2.9.2</version>
+</dependency>
+
+@EnableSwagger2
+
+	@Bean 
+	public Docket docket() {
+		return new Docket(DocumentationType.SWAGGER_2)
+				.select()
+				.apis(RequestHandlerSelectors.basePackage("io.springboot2.x.controller"))
+				.paths(PathSelectors.any())
+				.build();
+	}
+
+}
+
+
+
+	@Bean 
+	public Docket docket() {
+		ApiInfo apiInfo=new ApiInfoBuilder().title("MovieRulz9.5 REST APPLICATION DOCUMENTAION...")
+				.description("MovieRulz is one of the top running website where you can get all Latest movies to info. Despite the movie is Hollywood, Bollywood, Telugu, Tamil or Malayalam, all are available under one shed. The movies are uploaded in fast servers to serve you all the best of service possible")
+				.contact(new Contact("NagaGiree", null, "nagagirigollapalli5@gmail.com"))
+				.license("Sathya license").licenseUrl("http://www.sathyatech.com").build();
+		
+		return new Docket(DocumentationType.SWAGGER_2)
+				.select()
+				.apis(RequestHandlerSelectors.basePackage("io.springboot2.x.controller"))
+				.paths(PathSelectors.any())
+				.build().apiInfo(apiInfo);
+	}
+
+http://localhost:4343/PMS/swagger-ui.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

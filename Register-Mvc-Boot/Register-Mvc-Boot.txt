@@ -1,0 +1,5 @@
+http://localhost:4555/RegisterMvcBoot/registerPage
+http://localhost:4555/RegisterMvcBoot/registerUser
+No database connection 
+spring.main.banner-mode=off 
+spring.output.ansi.enabled=ALWAYS

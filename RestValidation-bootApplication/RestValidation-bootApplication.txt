@@ -1,0 +1,52 @@
+http://localhost:4343/PMS/users/add
+
+{
+"id":122,
+    "firstName": "",
+    "lastName": "dhar",
+    "email": "giri&dhar.de.gov",
+    "mobilePhone": "202-555-6258",
+    "birthday": "1998-02-26",
+    "commPreference": "phone",
+    "mobileDevices": [
+        "iPhone",
+        "Samsung Galaxy",
+        ""
+    ]
+}
+
+{
+    "id":111,
+    "firstName": "giri",
+    "lastName": "dhar",
+    "email": "giri&dhar.de.gov",
+    "mobilePhone": "202-555-6258",
+    "birthday": "1998-02-26",
+    "commPreference": "phone",
+    "mobileDevices": [
+        "iPhone",
+        "Samsung Galaxy",
+        "Ipad"
+    ]
+}
+
+{
+    "id":133,
+    "firstName": "giri",
+    "lastName": "dhar",
+    "email": "giri&dhar.de.gov",
+    "mobilePhone": "202-555-6258",
+    "birthday": "1998-02-26",
+    "commPreference": "email",
+    "mobileDevices": [
+        "iPhone",
+        "Samsung Galaxy",
+        "Ipad"
+    ]
+}
+
+
+
+
+
+

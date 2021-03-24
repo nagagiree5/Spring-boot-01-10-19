@@ -1,0 +1,97 @@
+03-11-19:
+
+Note>>In Oracle:
+----------------
+CREATE TABLE AUTHORITIES(USERNAME VARCHAR2(35) NOT NULL , 
+AUTHORITY VARCHAR2(35) NOT NULL);
+ALTER TABLE AUTHORITIES
+ADD CONSTRAINT AUTHORITIES_FK1 FOREIGN KEY(USERNAME )
+REFERENCES USERS(USERNAME )
+ENABLE;
+
+
+CREATE TABLE AUTHORITIES(USERNAME VARCHAR2(35) NOT NULL , 
+AUTHORITY VARCHAR2(35) NOT NULL);
+ALTER TABLE AUTHORITIES
+ADD CONSTRAINT AUTHORITIES_FK1 FOREIGN KEY(USERNAME )
+REFERENCES USERS(USERNAME )
+ENABLE;
+
+
+INSERT INTO GIRIDB.USERS VALUES (?,?,?)
+
+Note>>In console:
+Caused by: java.sql.SQLException: ORA-12899: value too large for column "GIRIDB"."USERS"."PASSWORD" (actual: 60, maximum: 55)
+
+In Orracle:
+SQL> select * from users;
+
+USERNAME
+-----------------------------------
+PASSWORD
+---------------------------------------------------------------------------
+   ENABLED
+----------
+admin
+$2a$10$6H9No0s06HsuYZYZv6nCHO3OICKw4J3z/zSF.YbU60rfUeu09y.qC
+         0
+
+ceo
+$2a$10$loeGkf7XJNT1L/EoYoRPtuXsZMldycvfotWuadpisRHXhb9TaHNeK
+         1
+
+USERNAME
+-----------------------------------
+PASSWORD
+---------------------------------------------------------------------------
+   ENABLED
+----------
+
+manager
+$2a$10$pAJ6wIV4au8j3dqW0zPc5uyvH4sYQkgUFYkh0r5.pxtEM00xgO4yS
+         1
+Note:
+INSERT INTO GIRIDB.AUTHORITIES (USERNAME, AUTHORITY) VALUES ('admin', 'ROLE_ADMIN');
+INSERT INTO GIRIDB.AUTHORITIES (USERNAME, AUTHORITY) VALUES ('ceo', 'ROLE_CEO');
+INSERT INTO GIRIDB.AUTHORITIES (USERNAME, AUTHORITY) VALUES ('manager', 'ROLE_MANAGER');
+
+DELETE FROM GIRIDB.AUTHORITIES WHERE USERNAME='admin';
+DELETE FROM GIRIDB.AUTHORITIES WHERE USERNAME='ceo';
+DELETE FROM GIRIDB.AUTHORITIES WHERE USERNAME='manager';
+
+SQL> select * from authorities;
+
+USERNAME                            AUTHORITY
+----------------------------------- -----------------------------------
+admin                               ROLE_ADMIN
+manager                             ROLE_MANAGER
+ceo                                 ROLE_CEO
+
+MySql also same...
+
+
+http://localhost:4999/ems/linksPage.jsp
+
+http://localhost:4343/ems/index.jsp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

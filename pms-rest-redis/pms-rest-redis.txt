@@ -1,0 +1,155 @@
+14-05-2020:
+
+Redis cache:
+   *Cache improves performance by not-hitting the database again and again to load same data.
+   *If data is loaded from database then it will stored in cache and for subsequent requests same data will be provided from cache without hitting a database.
+   *Redis cache is a cache provider and we can use spring caching annotation with this cache to perform crud operations on data of a cache.
+   *Add the below dependencies to pom.xml
+        spring-boot-starter-cache
+        spring-boot-starter-data-redis
+   *Download and extarct redis zip file.
+   *Spring caching annotations are,
+       @Cacheable
+       @CachePut
+       @CacheEvit
+
+@Cacheable --->It is check data is associated with given key in a cache.      GET end points
+               If key is exist then reurns data from cache without invoking the method.
+               If key is desn't exist after execution of the method, the result will be stored cache with a given key.
+                             *cache name                      *It is SpEl expression, the data is stored with key as methodname
+          @Cacheable(value="productsCache",key="#root.methodName")
+          public List<Product> getAllProducts(){
+                 //Logic
+          }
+
+                             *cache name                      *It is SpEl expression, the data is stored with key as productId
+          @Cacheable(value="productsCache2",key="#productId")
+          public List<Product> getProductById(Integer productId){
+                 //Logic
+          }
+
+
+@CachePut --->It allows the method to excute and update result of excution in cache. 
+              Add/Update operations we can use.
+        @CachePut(value="productsCache2",key="#product.productId")
+        public Product modifyProduct(Product product){
+               //Logic 
+      
+              }
+
+@CacheEvit--->It allows the method to excute for deleting data from database and then it removes data of the given key from cache also.
+             @CacheEvit(value="productsCache2",key="#productId")
+             public String deleteProduct(Integer id){
+                 //Logic
+             }
+
+
+             @CacheEvit(value="productsCache2",allEntries=true)
+             public boolean deleteAllProducts(){
+                 //Logic
+             }
+
+
+18-05-2020
+Start redis server
+redis-cli
+=============================================================================================================================================
+127.0.0.1:6379> keys *
+(empty list or set)
+127.0.0.1:6379> ping
+PONG
+127.0.0.1:6379> flushall
+OK
+(1.36s)
+127.0.0.1:6379> keys *
+(empty list or set)
+127.0.0.1:6379> keys *
+1) "singleProduct::105"
+127.0.0.1:6379> keys *
+1) "singleProduct::105"
+127.0.0.1:6379> keys *
+1) "singleProduct::108"
+2) "singleProduct::105"
+127.0.0.1:6379> del singleProduct::106
+(integer) 0
+127.0.0.1:6379> del singleProduct::108
+(integer) 1
+127.0.0.1:6379> keys *
+1) "singleProduct::108"
+2) "singleProduct::105"
+127.0.0.1:6379> del singleProduct::105
+(integer) 1
+127.0.0.1:6379> flushall
+OK
+(0.59s)
+127.0.0.1:6379> keys *
+(empty list or set)
+127.0.0.1:6379> keys *
+(empty list or set)
+127.0.0.1:6379> keys *
+1) "singleProduct::106"
+2) "singleProduct::103"
+3) "singleProduct::105"
+4) "singleProduct::102"
+127.0.0.1:6379> keys *
+1) "singleProduct::106"
+2) "singleProduct::105"
+3) "singleProduct::102"
+127.0.0.1:6379> flushall
+OK
+127.0.0.1:6379> keys *
+(empty list or set)
+127.0.0.1:6379> keys *
+1) "singleProduct::108"
+127.0.0.1:6379>>
+
+
+===========================================================================================================================================
+http://localhost:4343/PmsRest/product/create
+http://localhost:4343/PmsRest/products/105
+http://localhost:4343/PmsRest/product/delete?productid=103
+http://localhost:4343/PmsRest/product/update
+
+{
+    "dtoList": [
+        {
+            "productId": 101,
+            "productName": "POWERBANK",
+            "price": 1500.0,
+            "manufacturer": "SONY"
+        },
+        {
+            "productId": 102,
+            "productName": "Refregirator",
+            "price": 10000.0,
+            "manufacturer": "LG"
+        },
+        {
+            "productId": 103,
+            "productName": "Tshirt",
+            "price": 500.0,
+            "manufacturer": "Warangler"
+        },
+        {
+            "productId": 104,
+            "productName": "PENDRIVE",
+            "price": 600.0,
+            "manufacturer": "SANDISK"
+        },
+        {
+            "productId": 105,
+            "productName": "LAPTOP",
+            "price": 52000.0,
+            "manufacturer": "DELL"
+        },
+        {
+            "productId": 106,
+            "productName": "MOBILE",
+            "price": 52000.0,
+            "manufacturer": "SAMSUNG"
+        }
+    ]
+}
+
+
+

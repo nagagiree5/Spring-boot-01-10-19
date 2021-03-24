@@ -1,0 +1,14 @@
+# Maintane some Historical order...& More readble...
+# Aport from that no need to define multiple profiles...In yml Each enviromt seperate in yml "---"
+server:
+      port: 8500
+      servlet: 
+             context-path: /MvcBoot
+spring: 
+      mvc:
+         view:
+             prefix: /
+             suffix: .jsp
+             
+
+ 

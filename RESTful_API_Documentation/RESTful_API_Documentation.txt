@@ -1,0 +1,142 @@
+http://localhost:4555/UserApi/swagger-ui.html
+
+
+14-11-19:-->
+
+In PostMan:-
+------------
+
+http://localhost:4555/UserApi/users/all
+http://localhost:4555/UserApi/users/222
+
+http://localhost:4555/UserApi/delete?userid=333
+http://localhost:4555/UserApi/create
+
+
+15-11-19:-->
+
+
+
++RESTfull version maintance: support both previous and current version also...
+         1.Try with diff end points or urls For version to Version...
+         2.Same end points but in RequestMapping one more eliment params or headers For version to Version...
+-->Springboot is to support both but recomended to use 2nd one...thru add params attribute in mapping...
+@GetMapping(value="/users/all",  produces="application/json",params = "version=2.0")-->>id & name...
+@GetMapping(value="/users/all",  produces="application/json",params = "version=1.0")-->>id,name and phnnor...
+
+http://localhost:4555/UserApi/users/all?version=2.0    For V2
+http://localhost:4555/UserApi/users/all?version=1.0    For V1
+
+http://localhost:4555/UserApi/users/222?version=2.0
+http://localhost:4555/UserApi/users/222?version=1.0
+
+
+http://localhost:4555/UserApi/users/222
+http://localhost:4555/UserApi/users/222?version=1.0
+----------------------------------------------------------------------------------------------------------------
+[
+{
+userId: 111,
+userName: "NagagiriGollapalli",
+phoneNo: 9492011956
+},
+{
+userId: 222,
+userName: "HegdePooja",
+phoneNo: 1234567891
+}
+]
+--------------------------------------------------------------------------------------------------------------------
+[
+{
+userId: 111,
+userName: "NagagiriGollapalli",
+phoneNo: null
+},
+{
+userId: 222,
+userName: "HegdePooja",
+phoneNo: null
+}
+]
+---------------------------------------------------------------------------------------------------------------------
+
+
+*Spring Boot Actuator:-
+--------------------
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+Actuator mostly access thru HTTP GET method Except few...
+
+http://localhost:4555/UserApi/manage             For this one property added in properties file...
+http://localhost:4555/UserApi/actuator
+http://localhost:4555/UserApi/actuator/beans     
+http://localhost:4555/UserApi/actuator/caches
+http://localhost:4555/UserApi/actuator/caches/
+http://localhost:4555/UserApi/actuator/env
+http://localhost:4555/UserApi/actuator/env/com.restful.cache.max-size
+http://localhost:4555/UserApi/actuator/health
+http://localhost:4555/UserApi/actuator/health/db
+http://localhost:4555/UserApi/actuator/heapdump     File is downloaded "heapdump"...
+http://localhost:4555/UserApi/actuator/health/diskSpace
+http://localhost:4555/UserApi/actuator/info
+http://localhost:4555/UserApi/actuator/loggers
+http://localhost:4555/UserApi/actuator/loggers/com.restful.ResTfulApiDocumentationApplication
+
+$ curl 'http://localhost:4555/UserApi/actuator/loggers/com.restful' -i -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"configuredLevel":"debug"}'
+$ curl 'http://localhost:4555/UserApi/actuator/loggers/com.restful' -i -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{}
+    
+http://localhost:4555/UserApi/actuator/mappings
+http://localhost:4555/UserApi/actuator/metrics
+http://localhost:4555/UserApi/actuator/metrics/jvm.memory.max
+$ curl ' http://localhost:4555/UserApi/actuator/metrics/jvm.memory.max?tag=area%3Anonheap&tag=id%3ACompressed+Class+Space ' -i -X GET
+http://localhost:4555/UserApi/actuator/scheduledtasks
+http://localhost:4555/UserApi/actuator/sessions?username=admin
+http://localhost:4555/UserApi/actuator/threaddump
+
+
+
+YAML&Properties:-
+----------------
+management.endpoint.shutdown.enabled=true
+management.endpoints.enabled-by-default=false
+management.endpoint.info.enabled=true
+management.endpoints.jmx.exposure.include=health,info
+management.endpoints.web.exposure.include=*
+management.endpoints.web.exposure.exclude=env,beans
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+management.endpoint.beans.cache.time-to-live=10s
+management.endpoints.web.cors.allowed-origins=http://localhost:4555/UserApi
+management.endpoints.web.cors.allowed-methods=GET,POST
+management.endpoint.health.show-details=always
+management.endpoint.health.show-components=always
+info.app.encoding=UTF-8
+info.app.java.source=1.8
+info.app.java.target=1.8
+info.app.encoding=@project.build.sourceEncoding@
+info.app.java.source=@java.version@
+info.app.java.target=@java.version@
+management.endpoints.web.base-path=/manage
+management.server.ssl.*
+        
+        
+        
+>>referurls in google: https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/actuator-api/html/#overview-endpoint-urls
+                       https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html
+   
+
+
+
+

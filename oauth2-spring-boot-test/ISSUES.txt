@@ -1,0 +1,67 @@
+package io.springboot2.x.security;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Configuration
+@Order(1)
+public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder() ;
+		
+	}
+}
+
+
+Issue: Start Running:
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.7.RELEASE)
+
+2020-05-18 13:16:20.840  INFO 331324 --- [  restartedMain] i.s.x.Oauth2SpringBootTestApplication    : Starting Oauth2SpringBootTestApplication on SAIGIRI with PID 331324 (C:\New_folder\Spring-boot-01-10-19\oauth2-spring-boot-test\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\oauth2-spring-boot-test)
+2020-05-18 13:16:20.845  INFO 331324 --- [  restartedMain] i.s.x.Oauth2SpringBootTestApplication    : No active profile set, falling back to default profiles: default
+2020-05-18 13:16:20.937  INFO 331324 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-18 13:16:20.938  INFO 331324 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-18 13:16:22.740  INFO 331324 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5555 (http)
+2020-05-18 13:16:22.748  INFO 331324 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-18 13:16:22.748  INFO 331324 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-18 13:16:22.861  INFO 331324 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/EX]     : Initializing Spring embedded WebApplicationContext
+2020-05-18 13:16:22.861  INFO 331324 --- [  restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1923 ms
+2020-05-18 13:16:23.210  WARN 331324 --- [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'oauth2AuthorizationServer': Unsatisfied dependency expressed through field 'passwordEncoder'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-05-18 13:16:23.217  INFO 331324 --- [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-18 13:16:23.244  INFO 331324 --- [  restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-05-18 13:16:23.480 ERROR 331324 --- [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field passwordEncoder in io.springboot2.x.authorizationserver.Oauth2AuthorizationServer required a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' in your configuration.
+
+
+Solution:
+
+@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder() ;
+		
+	}
+
+

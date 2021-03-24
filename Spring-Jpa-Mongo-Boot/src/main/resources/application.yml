@@ -1,0 +1,71 @@
+spring:
+   profiles:
+           active: "dev"  
+   mvc:
+      view:
+          prefix: /
+          suffix: .jsp          
+
+server:
+   port: 4555
+   servlet:
+        context-path: /ems
+
+
+---
+spring:
+  profiles: prod
+  data:
+      mongodb:
+             host: localhost  
+             port: 27017
+             database: giridb
+                
+---
+spring:
+  profiles: dev
+  # Spring JDBC configuration
+  datasource:
+    url:      jdbc:oracle:thin:@localhost:1521/xe
+    username: giridb
+    password: giridb
+    driverClassName: oracle.jdbc.driver.OracleDriver
+  # Spring Data JPA configuration
+  jpa:
+    hibernate:
+      # To be updated in real production usage!
+      ddl-auto: update
+    show-sql: true
+    
+---
+spring:
+  profiles: test
+  # Spring JDBC configuration
+  datasource:
+    url:      jdbc:mysql://localhost:3306/giridb
+    username: root
+    password: giridb
+    driverClassName: com.mysql.cj.jdbc.Driver
+  # Spring Data JPA configuration
+  jpa:
+    hibernate:
+      # To be updated in real production usage!
+      ddl-auto: update
+    show-sql: true
+    
+---
+
+spring:
+  profiles: test
+  # Spring JDBC configuration
+  datasource:
+    url:      jdbc:mysql://localhost:3306/giridb
+    username: root
+    password: giridb
+    driverClassName: com.mysql.cj.jdbc.Driver
+  # Spring Data JPA configuration
+  jpa:
+    hibernate:
+      # To be updated in real production usage!
+      ddl-auto: update
+    show-sql: true

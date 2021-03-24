@@ -1,0 +1,95 @@
+04-10-19:-
+
+1.In Eclipse Right click on project
+                   Run as-->>4.Maven build...-->>Goal:package or clean package-->>Run  [Refesh project JAR file is created on target...]
+cmd:-->>           mvn clean spring-boot:run
+
+Step1: without maven plugin:
+
+Microsoft Windows [Version 10.0.18362.356]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>cd C:\New_folder\Spring-boot-01-10-19\spring-boot-arguments
+
+C:\New_folder\Spring-boot-01-10-19\spring-boot-arguments>java -jar target\spring-boot-arguments-0.0.1-SNAPSHOT.jar com.mvnrepo.SpringBootArgumentsApplication --person.setName=[SPRINGBOOT,NAGAGIRI] iamNonOptinal1 --person.setAge=21 iamNonOptinal2
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-04 21:47:13.293  INFO 45944 --- [           main] c.m.SpringBootArgumentsApplication       : Starting SpringBootArgumentsApplication v0.0.1-SNAPSHOT on SAIGIRI with PID 45944 (C:\New_folder\Spring-boot-01-10-19\spring-boot-arguments\target\spring-boot-arguments-0.0.1-SNAPSHOT.jar started by girid in C:\New_folder\Spring-boot-01-10-19\spring-boot-arguments)
+2019-10-04 21:47:13.297  INFO 45944 --- [           main] c.m.SpringBootArgumentsApplication       : No active profile set, falling back to default profiles: default
+2019-10-04 21:47:14.069  INFO 45944 --- [           main] c.m.SpringBootArgumentsApplication       : Started SpringBootArgumentsApplication in 1.297 seconds (JVM running for 1.798)
+[SPRINGBOOT,NAGAGIRI]
+=============================
+
+Non-Optinal Arguments:[com.mvnrepo.SpringBootArgumentsApplication, iamNonOptinal1, iamNonOptinal2]
+Optinal Arguments:[person.setName, person.setAge]
+person.setName:[[SPRINGBOOT,NAGAGIRI]]
+person.setAge:[21]
+
+
+****************************************************************************************************************************************************************************************************
+Step2:With maven plugin:
+
+C:\New_folder\Spring-boot-01-10-19\spring-boot-arguments>mvn spring-boot:run -Dspring-boot.run.arguments=--person.setName=SPRING,iamNonOptinal1,--person.setAge=21,iamNonOptinal2
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------< com.mvnrepo:spring-boot-arguments >------------------
+[INFO] Building spring-boot-arguments 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] >>> spring-boot-maven-plugin:2.1.9.RELEASE:run (default-cli) > test-compile @ spring-boot-arguments >>>
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ spring-boot-arguments ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ spring-boot-arguments ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ spring-boot-arguments ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\New_folder\Spring-boot-01-10-19\spring-boot-arguments\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ spring-boot-arguments ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] <<< spring-boot-maven-plugin:2.1.9.RELEASE:run (default-cli) < test-compile @ spring-boot-arguments <<<
+[INFO]
+[INFO]
+[INFO] --- spring-boot-maven-plugin:2.1.9.RELEASE:run (default-cli) @ spring-boot-arguments ---
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.9.RELEASE)
+
+2019-10-04 22:19:59.772  INFO 12020 --- [           main] c.m.SpringBootArgumentsApplication       : Starting SpringBootArgumentsApplication on SAIGIRI with PID 12020 (C:\New_folder\Spring-boot-01-10-19\spring-boot-arguments\target\classes started by girid in C:\New_folder\Spring-boot-01-10-19\spring-boot-arguments)
+2019-10-04 22:19:59.776  INFO 12020 --- [           main] c.m.SpringBootArgumentsApplication       : No active profile set, falling back to default profiles: default
+2019-10-04 22:20:00.506  INFO 12020 --- [           main] c.m.SpringBootArgumentsApplication       : Started SpringBootArgumentsApplication in 1.197 seconds (JVM running for 7.858)
+SPRING
+=============================
+
+Non-Optinal Arguments:[iamNonOptinal1, iamNonOptinal2]
+Optinal Arguments:[person.setName, person.setAge]
+person.setName:[SPRING]
+person.setAge:[21]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.196 s
+[INFO] Finished at: 2019-10-04T22:20:00+05:30
+[INFO] ------------------------------------------------------------------------
+
+C:\New_folder\Spring-boot-01-10-19\spring-boot-arguments>
+
+

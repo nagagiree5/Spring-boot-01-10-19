@@ -1,0 +1,55 @@
+25-02-2020:
+
+Microsoft Windows [Version 10.0.18362.657]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>java -jar C:\New_folder\Spring-boot-01-10-19\SpringBootApplcationRunner\target\SpringBootApplcationRunner-0.0.1-SNAPSHOT.jar --id=111 NonOption1 --name=PoojaHegde NonOption2 --Phn=9492011956
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.4.RELEASE)
+
+2020-02-26 01:51:53.205  INFO 724 --- [           main] .m.SpringBootApplcationRunnerApplication : Starting SpringBootApplcationRunnerApplication v0.0.1-SNAPSHOT on SAIGIRI with PID 724 (C:\New_folder\Spring-boot-01-10-19\SpringBootApplcationRunner\target\SpringBootApplcationRunner-0.0.1-SNAPSHOT.jar started by girid in C:\Users\girid)
+2020-02-26 01:51:53.208  INFO 724 --- [           main] .m.SpringBootApplcationRunnerApplication : No active profile set, falling back to default profiles: default
+2020-02-26 01:51:53.850  INFO 724 --- [           main] .m.SpringBootApplcationRunnerApplication : Started SpringBootApplcationRunnerApplication in 1.153 seconds (JVM running for 1.691)
+==============================================
+NonOptionArgs-->>
+NonOption1
+NonOption2
+OptionArgs-->>
+Phn:9492011956
+name:PoojaHegde
+id:111
+==============================================
+
+C:\Users\girid>java -jar C:\New_folder\Spring-boot-01-10-19\SpringBootApplcationRunner\target\SpringBootApplcationRunner-0.0.1-SNAPSHOT.jar --id=111 NonOption1 --name=PoojaHegde NonOption2 --Phn=9492011956
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.4.RELEASE)
+
+2020-02-26 02:02:09.778  INFO 14144 --- [           main] .m.SpringBootApplcationRunnerApplication : Starting SpringBootApplcationRunnerApplication v0.0.1-SNAPSHOT on SAIGIRI with PID 14144 (C:\New_folder\Spring-boot-01-10-19\SpringBootApplcationRunner\target\SpringBootApplcationRunner-0.0.1-SNAPSHOT.jar started by girid in C:\Users\girid)
+2020-02-26 02:02:09.782  INFO 14144 --- [           main] .m.SpringBootApplcationRunnerApplication : No active profile set, falling back to default profiles: default
+2020-02-26 02:02:10.429  INFO 14144 --- [           main] .m.SpringBootApplcationRunnerApplication : Started SpringBootApplcationRunnerApplication in 1.154 seconds (JVM running for 1.675)
+From CoomdLineRunner...
+==============================================
+From  ApplicationRunner...
+NonOptionArgs-->>
+NonOption1
+NonOption2
+OptionArgs-->>
+Phn:9492011956
+name:PoojaHegde
+id:111
+==============================================
+From ApplicationRunner2 ...
+
+C:\Users\girid>

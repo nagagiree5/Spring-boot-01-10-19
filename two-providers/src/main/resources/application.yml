@@ -1,0 +1,19 @@
+server:
+   port: 5555
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 34bcbc01024993b10a32
+            client-secret: 7bdc39681a702bdc07c7769af054e3c04cc40037
+          #google:
+            #client-id: your-google-client-id
+            #client-secret: your-google-client-secret
+
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
+   

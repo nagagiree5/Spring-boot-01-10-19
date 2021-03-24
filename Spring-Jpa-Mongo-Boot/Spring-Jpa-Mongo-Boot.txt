@@ -1,0 +1,431 @@
+24-10-2019:
+
+
+Note>>Install Mongodb   NoSql db....thru methods we can set data into db...
+
+In cmd-->
+-------------------------------------------------------------------------
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>mongod
+'mango' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\girid>
+--------------------------------------------------------------------------
+
+Note>>Set Environment Var:Edit Path -->Addnew
+C:\Program Files\MongoDB\Server\4.2\bin
+
+In cmd-->"NonExistentPath: Data directory C:\data\db\ not found., terminatin"
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>mongod
+2019-10-25T19:18:02.115+0530 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2019-10-25T19:18:02.589+0530 I  CONTROL  [initandlisten] MongoDB starting : pid=9212 port=27017 dbpath=C:\data\db\ 64-bit host=SAIGIRI
+2019-10-25T19:18:02.589+0530 I  CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2019-10-25T19:18:02.590+0530 I  CONTROL  [initandlisten] db version v4.2.1
+2019-10-25T19:18:02.590+0530 I  CONTROL  [initandlisten] git version: edf6d45851c0b9ee15548f0f847df141764a317e
+2019-10-25T19:18:02.590+0530 I  CONTROL  [initandlisten] allocator: tcmalloc
+2019-10-25T19:18:02.590+0530 I  CONTROL  [initandlisten] modules: none
+2019-10-25T19:18:02.590+0530 I  CONTROL  [initandlisten] build environment:
+2019-10-25T19:18:02.590+0530 I  CONTROL  [initandlisten]     distmod: 2012plus
+2019-10-25T19:18:02.590+0530 I  CONTROL  [initandlisten]     distarch: x86_64
+2019-10-25T19:18:02.590+0530 I  CONTROL  [initandlisten]     target_arch: x86_64
+2019-10-25T19:18:02.591+0530 I  CONTROL  [initandlisten] options: {}
+2019-10-25T19:18:02.593+0530 I  STORAGE  [initandlisten] exception in initAndListen: NonExistentPath: Data directory C:\data\db\ not found., terminating
+2019-10-25T19:18:02.594+0530 I  NETWORK  [initandlisten] shutdown: going to close listening sockets...
+2019-10-25T19:18:02.594+0530 I  -        [initandlisten] Stopping further Flow Control ticket acquisitions.
+2019-10-25T19:18:02.594+0530 I  CONTROL  [initandlisten] now exiting
+2019-10-25T19:18:02.594+0530 I  CONTROL  [initandlisten] shutting down with code:100
+
+Note: Create directory:
+In cmd-->
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+C:\Users\girid>cd C:\
+
+C:\>md "\data\db"
+
+C:\>mongod
+2019-10-25T20:08:40.888+0530 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2019-10-25T20:08:40.895+0530 I  CONTROL  [initandlisten] MongoDB starting : pid=5624 port=27017 dbpath=C:\data\db\ 64-bit host=SAIGIRI
+2019-10-25T20:08:40.896+0530 I  CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2019-10-25T20:08:40.896+0530 I  CONTROL  [initandlisten] db version v4.2.1
+2019-10-25T20:08:40.896+0530 I  CONTROL  [initandlisten] git version: edf6d45851c0b9ee15548f0f847df141764a317e
+2019-10-25T20:08:40.896+0530 I  CONTROL  [initandlisten] allocator: tcmalloc
+2019-10-25T20:08:40.896+0530 I  CONTROL  [initandlisten] modules: none
+2019-10-25T20:08:40.896+0530 I  CONTROL  [initandlisten] build environment:
+2019-10-25T20:08:40.896+0530 I  CONTROL  [initandlisten]     distmod: 2012plus
+2019-10-25T20:08:40.896+0530 I  CONTROL  [initandlisten]     distarch: x86_64
+2019-10-25T20:08:40.896+0530 I  CONTROL  [initandlisten]     target_arch: x86_64
+2019-10-25T20:08:40.897+0530 I  CONTROL  [initandlisten] options: {}
+2019-10-25T20:08:40.925+0530 I  STORAGE  [initandlisten] Detected data files in C:\data\db\ created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2019-10-25T20:08:40.927+0530 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3533M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2019-10-25T20:08:41.171+0530 I  STORAGE  [initandlisten] WiredTiger message [1572014321:171679][5624:140731969789520], txn-recover: Recovering log 1 through 2
+2019-10-25T20:08:41.399+0530 I  STORAGE  [initandlisten] WiredTiger message [1572014321:399058][5624:140731969789520], txn-recover: Recovering log 2 through 2
+2019-10-25T20:08:41.507+0530 I  STORAGE  [initandlisten] WiredTiger message [1572014321:506762][5624:140731969789520], txn-recover: Main recovery loop: starting at 1/24064 to 2/256
+2019-10-25T20:08:41.656+0530 I  STORAGE  [initandlisten] WiredTiger message [1572014321:656334][5624:140731969789520], txn-recover: Recovering log 1 through 2
+2019-10-25T20:08:41.777+0530 I  STORAGE  [initandlisten] WiredTiger message [1572014321:776053][5624:140731969789520], txn-recover: Recovering log 2 through 2
+2019-10-25T20:08:41.854+0530 I  STORAGE  [initandlisten] WiredTiger message [1572014321:853808][5624:140731969789520], txn-recover: Set global recovery timestamp: (0,0)
+2019-10-25T20:08:42.224+0530 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2019-10-25T20:08:42.286+0530 I  STORAGE  [initandlisten] Timestamp monitor starting
+2019-10-25T20:08:42.349+0530 I  CONTROL  [initandlisten]
+2019-10-25T20:08:42.350+0530 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2019-10-25T20:08:42.351+0530 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2019-10-25T20:08:42.351+0530 I  CONTROL  [initandlisten]
+2019-10-25T20:08:42.351+0530 I  CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2019-10-25T20:08:42.352+0530 I  CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server.
+2019-10-25T20:08:42.352+0530 I  CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP
+2019-10-25T20:08:42.352+0530 I  CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2019-10-25T20:08:42.353+0530 I  CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2019-10-25T20:08:42.353+0530 I  CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2019-10-25T20:08:42.353+0530 I  CONTROL  [initandlisten]
+2019-10-25T20:08:42.365+0530 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2019-10-25T20:08:42.371+0530 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2019-10-25T20:08:42.373+0530 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2019-10-25T20:08:42.374+0530 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2019-10-25T20:08:42.381+0530 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2019-10-25T20:08:42.680+0530 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/data/db/diagnostic.data'
+2019-10-25T20:08:42.682+0530 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2019-10-25T20:08:42.683+0530 I  NETWORK  [initandlisten] Listening on 127.0.0.1
+2019-10-25T20:08:42.683+0530 I  NETWORK  [initandlisten] waiting for connections on port 27017
+2019-10-25T20:08:42.709+0530 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2019-10-25T20:08:43.007+0530 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+
+Note>> For terminate Server: "Ctrl+C" If working with mongo shell dont terminate Server.., mongo Shell in other cmd...  
+2019-10-25T20:13:15.851+0530 I  CONTROL  [thread1] Ctrl-C signal
+2019-10-25T20:13:15.852+0530 I  CONTROL  [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+2019-10-25T20:13:15.854+0530 I  NETWORK  [consoleTerminate] shutdown: going to close listening sockets...
+2019-10-25T20:13:15.855+0530 I  -        [consoleTerminate] Stopping further Flow Control ticket acquisitions.
+2019-10-25T20:13:15.858+0530 I  CONTROL  [consoleTerminate] Shutting down free monitoring
+2019-10-25T20:13:15.859+0530 I  FTDC     [consoleTerminate] Shutting down full-time diagnostic data capture
+2019-10-25T20:13:15.892+0530 I  STORAGE  [consoleTerminate] Deregistering all the collections
+2019-10-25T20:13:15.893+0530 I  STORAGE  [consoleTerminate] Timestamp monitor shutting down
+2019-10-25T20:13:15.899+0530 I  STORAGE  [consoleTerminate] WiredTigerKVEngine shutting down
+2019-10-25T20:13:15.906+0530 I  STORAGE  [consoleTerminate] Shutting down session sweeper thread
+2019-10-25T20:13:15.918+0530 I  STORAGE  [consoleTerminate] Finished shutting down session sweeper thread
+2019-10-25T20:13:15.923+0530 I  STORAGE  [consoleTerminate] Shutting down journal flusher thread
+2019-10-25T20:13:15.999+0530 I  STORAGE  [consoleTerminate] Finished shutting down journal flusher thread
+2019-10-25T20:13:16.000+0530 I  STORAGE  [consoleTerminate] Shutting down checkpoint thread
+2019-10-25T20:13:16.004+0530 I  STORAGE  [consoleTerminate] Finished shutting down checkpoint thread
+2019-10-25T20:13:16.337+0530 I  STORAGE  [consoleTerminate] shutdown: removing fs lock...
+2019-10-25T20:13:16.338+0530 I  CONTROL  [consoleTerminate] now exiting
+2019-10-25T20:13:16.349+0530 I  CONTROL  [consoleTerminate] shutting down with code:12
+
+NewCmd-->>For monogo Shell
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>mongo
+MongoDB shell version v4.2.1
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("dd62f922-907b-4f12-825a-9ddfd3e75644") }
+MongoDB server version: 4.2.1
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+        http://docs.mongodb.org/
+Questions? Try the support group
+        http://groups.google.com/group/mongodb-user
+Server has startup warnings:
+2019-10-25T20:25:28.767+0530 I  CONTROL  [initandlisten]
+2019-10-25T20:25:28.767+0530 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2019-10-25T20:25:28.768+0530 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2019-10-25T20:25:28.769+0530 I  CONTROL  [initandlisten]
+2019-10-25T20:25:28.769+0530 I  CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2019-10-25T20:25:28.769+0530 I  CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server.
+2019-10-25T20:25:28.770+0530 I  CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP
+2019-10-25T20:25:28.770+0530 I  CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2019-10-25T20:25:28.770+0530 I  CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2019-10-25T20:25:28.771+0530 I  CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2019-10-25T20:25:28.771+0530 I  CONTROL  [initandlisten]
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use giridb
+switched to db giridb
+> show dbs               *note>>Data not insert in giridb that reasion not show dbs...
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> db.books.insert({"name":"Spring boot","year":"2019"})    *note>>Data  insert in giridb that reasion show dbs like json...
+WriteResult({ "nInserted" : 1 })
+> show dbs 
+admin   0.000GB
+config  0.000GB
+giridb  0.000GB
+local   0.000GB
+> show collections;      *note>>Syntax:  db.collection.find();
+books
+> db.books.find();
+{ "_id" : ObjectId("5db313ec3626ccca969dce36"), "name" : "Spring boot", "year" : "2019" }
+
+> db.books.find().pretty();   *note>>Get some hirorical order...
+{
+        "_id" : ObjectId("5db313ec3626ccca969dce36"),
+        "name" : "Spring boot",
+        "year" : "2019"
+}
+> db.books.drop();
+true
+>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Note:If you click check box restart is required After set env var run this command directly...no need of server start...
+
+Microsoft Windows [Version 10.0.18362.418]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\girid>mongo
+MongoDB shell version v4.2.1
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("8f59cc53-0808-4687-9846-19a9d0bfb330") }
+MongoDB server version: 4.2.1
+Server has startup warnings:
+2019-10-25T20:25:28.767+0530 I  CONTROL  [initandlisten]
+2019-10-25T20:25:28.767+0530 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2019-10-25T20:25:28.768+0530 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2019-10-25T20:25:28.769+0530 I  CONTROL  [initandlisten]
+2019-10-25T20:25:28.769+0530 I  CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2019-10-25T20:25:28.769+0530 I  CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server.
+2019-10-25T20:25:28.770+0530 I  CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP
+2019-10-25T20:25:28.770+0530 I  CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2019-10-25T20:25:28.770+0530 I  CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2019-10-25T20:25:28.771+0530 I  CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2019-10-25T20:25:28.771+0530 I  CONTROL  [initandlisten]
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+>
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+**http://localhost:4555/ems/linksPage.jsp
+
+1Note>>In browser:
+----------------------------------------------------------------------------------------
+                  Register-->>
+                  ListOfEmployees-->>
+-----------------------------------------------------------------------------------------
+
+
+2[http://localhost:4555/ems/getRegisterPage]
+----------------------------------------------------------------------------------------
+Fullname :[NagaGiri                      ]	
+Email :	  [nagagirigollapalli@gmail.com  ]
+Experience :[5             ]	
+Gender : *Male  Female
+Date of Birth(yyyy.MM.dd):[1998.02.26]	
+----------------------------------------------------------------------------------------
+
+
+3[http://localhost:4555/ems/listOfEmployees]
+-------------------------------------------------------------------------------------------------------------------------
+Register-->>
+
+FullName	Email	                       Experience	    DateOfBirth	               Gender	   Actions
+NagaGiri	nagagirigollapalli@gmail.com	5	    Thu Feb 26 00:00:00 IST 1998	MALE	Edit   Delete
+--------------------------------------------------------------------------------------------------------------------------
+
+
+In MongoDB:
+-----------
+> show dbs
+admin   0.000GB
+config  0.000GB
+giridb  0.000GB
+local   0.000GB
+> use giridb
+switched to db giridb
+> show collections;
+EMP_TAB
+> db.EMP_TAB.find().pretty();
+{
+        "_id" : "nagagirigollapalli@gmail.com",
+        "fullName" : "NagaGiri",
+        "experience" : 5,
+        "gender" : "MALE",
+        "dateOfBirth" : ISODate("1998-02-25T18:30:00Z"),
+        "_class" : "com.mvnrepo.entity.Employee"
+}
+> db.emp_tab.find().pretty();             Note:Not allowed small letters must match Collection what we provided...
+>
+
+============================================================================================================================================================
+
+application.yml
+-------------------------------------------------------------------------------
+server:
+   port: 4555
+   servlet:
+        context-path: /ems
+spring:
+   mvc:
+      view:
+          prefix: /
+          suffix: .jsp          
+   data:
+      mongodb:
+            database: giridb
+            port: 27017
+            host: localhost
+            
+            
+            
+              
+--------------------------------------------------------------------------------
+
+http://localhost:4555/ems/linksPage.jsp
+
+
+----------------------------------------------------------------------------------------
+spring:
+   profiles:
+           active: "dev"  
+   mvc:
+      view:
+          prefix: /
+          suffix: .jsp          
+
+server:
+   port: 4555
+   servlet:
+        context-path: /ems
+
+
+---
+spring:
+  profiles: prod
+  data:
+      mongodb:
+             host: localhost  
+             port: 27017
+             database: giridb
+                
+---
+spring:
+  profiles: dev
+  # Spring JDBC configuration
+  datasource:
+    url:      jdbc:oracle:thin:@localhost:1521/xe
+    username: giridb
+    password: giridb
+    driverClassName: oracle.jdbc.driver.OracleDriver
+  # Spring Data JPA configuration
+  jpa:
+    hibernate:
+      # To be updated in real production usage!
+      ddl-auto: update
+    show-sql: true
+    
+---
+spring:
+  profiles: test
+  # Spring JDBC configuration
+  datasource:
+    url:      jdbc:mysql://localhost:3306/giridb
+    username: root
+    password: giridb
+    driverClassName: com.mysql.cj.jdbc.Driver
+  # Spring Data JPA configuration
+  jpa:
+    hibernate:
+      # To be updated in real production usage!
+      ddl-auto: update
+    show-sql: true
+    
+---
+
+spring:
+  profiles: test
+  # Spring JDBC configuration
+  datasource:
+    url:      jdbc:mysql://localhost:3306/giridb
+    username: root
+    password: giridb
+    driverClassName: com.mysql.cj.jdbc.Driver
+  # Spring Data JPA configuration
+  jpa:
+    hibernate:
+      # To be updated in real production usage!
+      ddl-auto: update
+    show-sql: true
+
+
+
+
+-----------------------------------------------------------------------------------
+
+http://localhost:4888/ems/linksPage.jsp   //Working no problem...
+
+dev profile is activate now...test also working but prod not working *_*
+
+In Oracle:
+=======================================================================================
+SQL> select * from emp_tab;
+
+EMAIL
+-----------------------------------
+DATE_OF_BIRTH
+---------------------------------------------------------------------------
+EXPERIENCE FULL_NAME       GENDER
+---------- --------------- ----------
+poojahegde@gmail.com
+12-OCT-91 12.00.00.000000 AM
+         5 PoojaHegde      FEMALE
+         
+          
+         
+========================================================================================
+
+
+application-dev.properties
+application-prod.properties
+application-test.properties
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+

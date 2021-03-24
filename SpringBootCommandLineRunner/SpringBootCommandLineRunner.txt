@@ -1,0 +1,91 @@
+24-02-2020:
+>>Note:Mvn goal:package or clean package
+
+13:04:30.056 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.4.RELEASE)
+
+2020-02-24 13:04:30.601  INFO 7328 --- [           main] ingBootCommandLineRunnerApplicationTests : Starting SpringBootCommandLineRunnerApplicationTests on SAIGIRI with PID 7328 (started by girid in C:\New_folder\Spring-boot-01-10-19\SpringBootCommandLineRunner)
+2020-02-24 13:04:30.606  INFO 7328 --- [           main] ingBootCommandLineRunnerApplicationTests : No active profile set, falling back to default profiles: default
+2020-02-24 13:04:31.323  INFO 7328 --- [           main] ingBootCommandLineRunnerApplicationTests : Started SpringBootCommandLineRunnerApplicationTests in 1.262 seconds (JVM running for 4.503)
+CustomerService [id=1111, name=Giridhar, mobileNor=9492011956]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.402 s - in io.springboot.mvn.SpringBootCommandLineRunnerApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ SpringBootCommandLineRunner ---
+[INFO] Building jar: C:\New_folder\Spring-boot-01-10-19\SpringBootCommandLineRunner\target\SpringBootCommandLineRunner-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.2.4.RELEASE:repackage (repackage) @ SpringBootCommandLineRunner ---
+[INFO] Downloading from : https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/2.2.4.RELEASE/spring-boot-loader-tools-2.2.4.RELEASE.pom
+>>Loading...
+[INFO] Downloaded from : https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/2.2.4.RELEASE/spring-boot-loader-tools-2.2.4.RELEASE.pom (2.5 kB at 2.9 kB/s)
+[INFO] Downloading from : https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.19/commons-compress-1.19.pom
+[INFO] Downloaded from : https://repo.maven.apache.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar (2.3 MB at 381 kB/s)
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:16 min
+[INFO] Finished at: 2020-02-24T13:05:56+05:30
+[INFO] ------------------------------------------------------------------------
+[WARNING] The requested profile "pom.xml" could not be activated because it does not exist.
+
+
+
+Note:cmd
+C:\Users\girid>cd C:\New_folder\Spring-boot-01-10-19\SpringBootCommandLineRunner
+
+C:\New_folder\Spring-boot-01-10-19\SpringBootCommandLineRunner>mvn --version
+Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-05T00:30:29+05:30)
+Maven home: C:\Users\girid\Downloads\MySQL__\apache-maven-3.6.1\bin\..
+Java version: 1.8.0_171, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk1.8.0_171\jre
+Default locale: en_IN, platform encoding: Cp1252
+OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
+
+C:\New_folder\Spring-boot-01-10-19\SpringBootCommandLineRunner>java -jar target\SpringBootCommandLineRunner-0.0.1-SNAPSHOT.jar --cust.id=2222 --cust.name=PoojaHegde --cust.mobile=9492011956
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.4.RELEASE)
+
+2020-02-24 13:27:31.547  INFO 6868 --- [           main] m.SpringBootCommandLineRunnerApplication : Starting SpringBootCommandLineRunnerApplication v0.0.1-SNAPSHOT on SAIGIRI with PID 6868 (C:\New_folder\Spring-boot-01-10-19\SpringBootCommandLineRunner\target\SpringBootCommandLineRunner-0.0.1-SNAPSHOT.jar started by girid in C:\New_folder\Spring-boot-01-10-19\SpringBootCommandLineRunner)
+2020-02-24 13:27:31.552  INFO 6868 --- [           main] m.SpringBootCommandLineRunnerApplication : No active profile set, falling back to default profiles: default
+2020-02-24 13:27:32.427  INFO 6868 --- [           main] m.SpringBootCommandLineRunnerApplication : Started SpringBootCommandLineRunnerApplication in 1.871 seconds (JVM running for 4.0)
+CustomerService [id=2222, name=PoojaHegde, mobileNor=9492011956]
+
+C:\New_folder\Spring-boot-01-10-19\SpringBootCommandLineRunner>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
